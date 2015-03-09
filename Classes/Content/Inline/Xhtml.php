@@ -1,7 +1,7 @@
 <?php
-namespace Netztechniker\Atom\Content\Inline;
+namespace Netztechniker\AtomSyndicationFormat\Content\Inline;
 
-use Netztechniker\Atom;
+use Netztechniker\AtomSyndicationFormat;
 
 
 /**
@@ -9,14 +9,14 @@ use Netztechniker\Atom;
  *
  * Contains the content of an entry as a single XHTML div element.
  *
- * @package Netztechniker\Atom
+ * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  * @date 2015-03-01
  *
  * @see http://atomenabled.org/developers/syndication/#contentElement
  * @see https://tools.ietf.org/html/rfc4287#section-4.1.3
  */
-class Xhtml extends Atom\Content\Inline {
+class Xhtml extends AtomSyndicationFormat\Content\Inline {
 
 	// optional
 	/**

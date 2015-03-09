@@ -1,5 +1,5 @@
 <?php
-namespace Netztechniker\Atom;
+namespace Netztechniker\AtomSyndicationFormat;
 
 
 /**
@@ -7,7 +7,7 @@ namespace Netztechniker\Atom;
  *
  * Contains or links to the content of an entry.
  *
- * @package Netztechniker\Atom\Domain\Model
+ * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  * @date 2015-03-01
  *

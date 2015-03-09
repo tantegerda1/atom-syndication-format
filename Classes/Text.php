@@ -1,5 +1,5 @@
 <?php
-namespace Netztechniker\Atom;
+namespace Netztechniker\AtomSyndicationFormat;
 
 
 /**
@@ -7,7 +7,7 @@ namespace Netztechniker\Atom;
  *
  * Contain human-readable text - usually in small quantities - and definition about how it is encoded.
  *
- * @package Netztechniker\Atom
+ * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  * @date 2015-03-01
  *

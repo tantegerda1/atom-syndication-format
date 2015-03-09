@@ -1,5 +1,5 @@
 <?php
-namespace Netztechniker\Atom;
+namespace Netztechniker\AtomSyndicationFormat;
 
 
 /**
@@ -7,7 +7,7 @@ namespace Netztechniker\Atom;
  *
  * Describes a person, corporation, or similar entity.
  *
- * @package Netztechniker\Atom
+ * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  * @date 2015-03-01
  *

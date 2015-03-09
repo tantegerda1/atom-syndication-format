@@ -1,5 +1,5 @@
 <?php
-namespace Netztechniker\Atom;
+namespace Netztechniker\AtomSyndicationFormat;
 
 use \SplObjectStorage;
 
@@ -7,7 +7,7 @@ use \SplObjectStorage;
 /**
  * An RFC 4287 Atom feed
  *
- * @package Netztechniker\Atom
+ * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  * @date 2015-03-01
  *

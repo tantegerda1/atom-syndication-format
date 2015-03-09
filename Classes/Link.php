@@ -1,5 +1,5 @@
 <?php
-namespace Netztechniker\Atom;
+namespace Netztechniker\AtomSyndicationFormat;
 
 use TYPO3\CMS\Core\Utility\MathUtility;
 
@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Utility\MathUtility;
  *
  * Patterned after html’s link element.
  *
- * @package Netztechniker\Atom
+ * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  * @date 2015-03-01
  *

@@ -1,5 +1,5 @@
 {
-  "name": "netztechniker/atom",
+  "name": "netztechniker/atom-syndication-format",
   "description": "Models the RFC 4287 specification (Atom Syndication Format).",
   "keywords": ["Atom", "RFC 4287", "feed", "developer"],
   "homepage": "https://github.com/tantegerda1/atom-syndication-format",

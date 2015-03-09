@@ -1,7 +1,7 @@
 <?php
-namespace Netztechniker\Atom\Content\Inline;
+namespace Netztechniker\AtomSyndicationFormat\Content\Inline;
 
-use Netztechniker\Atom;
+use Netztechniker\AtomSyndicationFormat;
 
 
 /**
@@ -14,7 +14,7 @@ use Netztechniker\Atom;
  * @see http://atomenabled.org/developers/syndication/#contentElement
  * @see https://tools.ietf.org/html/rfc4287#section-4.1.3
  */
-class Other extends Atom\Content\Inline {
+class Other extends AtomSyndicationFormat\Content\Inline {
 
 	// recommended
 	/**
@@ -111,7 +111,7 @@ class Other extends Atom\Content\Inline {
 	 * @throws \InvalidArgumentException 1425164446 if $type is no valid MIME type
 	 */
 	public function setType($type) {
-		if (!is_string($type) || '' === $type || 1 !== preg_match(Atom\Link::MIME_PATTERN, $type)) {
+		if (!is_string($type) || '' === $type || 1 !== preg_match(AtomSyndicationFormat\Link::MIME_PATTERN, $type)) {
 			throw new \InvalidArgumentException('Argument $type is not a valid MIME type: ' . $type, 1425164446);
 		}
 		$this->type = $type;
@@ -124,6 +124,6 @@ class Other extends Atom\Content\Inline {
 	 * @return TRUE if this content has a MIME Media Type set, FALSE otherwise
 	 */
 	public function hasType() {
-		return is_string($this->type) && 1 === preg_match(Atom\Link::MIME_PATTERN, $this->type);
+		return is_string($this->type) && 1 === preg_match(AtomSyndicationFormat\Link::MIME_PATTERN, $this->type);
 	}
 }

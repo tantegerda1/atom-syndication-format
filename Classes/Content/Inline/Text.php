@@ -1,7 +1,7 @@
 <?php
-namespace Netztechniker\Atom\Content\Inline;
+namespace Netztechniker\AtomSyndicationFormat\Content\Inline;
 
-use Netztechniker\Atom;
+use Netztechniker\AtomSyndicationFormat;
 
 
 /**
@@ -9,14 +9,14 @@ use Netztechniker\Atom;
  *
  * Contains the content of an entry as inline text - either plain text or entity encoded html.
  *
- * @package Netztechniker\Atom
+ * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  * @date 2015-03-01
  *
  * @see http://atomenabled.org/developers/syndication/#contentElement
  * @see https://tools.ietf.org/html/rfc4287#section-4.1.3
  */
-class Text extends Atom\Content\Inline {
+class Text extends AtomSyndicationFormat\Content\Inline {
 
 	// optional
 	/**
