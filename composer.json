@@ -1,0 +1,20 @@
+{
+  "name": "netztechniker/atom",
+  "description": "Models the RFC 4287 specification (Atom Syndication Format).",
+  "keywords": ["Atom", "RFC 4287", "feed", "developer"],
+  "homepage": "https://github.com/tantegerda1/atom",
+  "license": "GPL-3.0+",
+  "authors": [
+    {
+      "name": "Ludwig Rafelsberger",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">= 5.3.0, <= 5.6.99",
+    "ext-dom": "*"
+  },
+  "support": {
+    "issues": "https://github.com/tantegerda1/atom/issues"
+  }
+}
