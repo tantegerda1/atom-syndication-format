@@ -2,7 +2,7 @@
   "name": "netztechniker/atom",
   "description": "Models the RFC 4287 specification (Atom Syndication Format).",
   "keywords": ["Atom", "RFC 4287", "feed", "developer"],
-  "homepage": "https://github.com/tantegerda1/atom",
+  "homepage": "https://github.com/tantegerda1/atom-syndication-format",
   "license": "GPL-3.0+",
   "authors": [
     {
@@ -15,6 +15,6 @@
     "ext-dom": "*"
   },
   "support": {
-    "issues": "https://github.com/tantegerda1/atom/issues"
+    "issues": "https://github.com/tantegerda1/atom-syndication-format/issues"
   }
 }
