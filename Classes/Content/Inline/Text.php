@@ -12,8 +12,8 @@ use Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication/#contentElement
- * @see https://tools.ietf.org/html/rfc4287#section-4.1.3
+ * @link http://atomenabled.org/developers/syndication/#contentElement
+ * @link https://tools.ietf.org/html/rfc4287#section-4.1.3
  */
 class Text extends AtomSyndicationFormat\Content\Inline {
 
@@ -24,7 +24,7 @@ class Text extends AtomSyndicationFormat\Content\Inline {
 	 * Must be one of the TYPE_TEXT or TYPE_HTML constants. If not set, TYPE_TEXT is assumed.
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.1.3.1
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.1.3.1
 	 */
 	protected $type = self::TYPE_TEXT;
 

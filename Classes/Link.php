@@ -10,8 +10,8 @@ namespace Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication/#link
- * @see https://tools.ietf.org/html/rfc4287#section-4.2.7
+ * @link http://atomenabled.org/developers/syndication/#link
+ * @link https://tools.ietf.org/html/rfc4287#section-4.2.7
  */
 class Link {
 
@@ -36,7 +36,7 @@ class Link {
 	const REL_VIA = 'via';
 
 	/** Pattern to match a RFC 4288 MIME type
-	 * @see https://tools.ietf.org/html/rfc4288#section-4.2 */
+	 * @link https://tools.ietf.org/html/rfc4288#section-4.2 */
 	const MIME_PATTERN = '%^[[:alpha:][:digit:]!#\\$&\\.\\+\\-\\^_]{1,127}/[[:alpha:][:digit:]!#\\$&\\.\\+\\-\\^_]{1,127}$%';
 
 	/** Pattern to match a RFC 3066 Language Tag */
@@ -50,8 +50,8 @@ class Link {
 	 * IRI of the referenced resource (typically a Web page)
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.7.1
-	 * @see https://tools.ietf.org/html/rfc3987
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.7.1
+	 * @link https://tools.ietf.org/html/rfc3987
 	 */
 	protected $href;
 
@@ -63,7 +63,7 @@ class Link {
 	 * It can be a full URI (for extensibility), or one of REL_* constants
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.7.2
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.7.2
 	 * http://atomenabled.org/developers/syndication/#extensibility
 	 */
 	protected $rel;
@@ -72,8 +72,8 @@ class Link {
 	 * MIME Media type of the resource
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.7.3
-	 * @see https://tools.ietf.org/html/rfc4287#ref-MIMEREG
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.7.3
+	 * @link https://tools.ietf.org/html/rfc4287#ref-MIMEREG
 	 */
 	protected $type;
 
@@ -81,8 +81,8 @@ class Link {
 	 * Language of the referenced resource
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.7.4
-	 * @see https://tools.ietf.org/html/rfc3066
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.7.4
+	 * @link https://tools.ietf.org/html/rfc3066
 	 */
 	protected $hreflang;
 
@@ -90,7 +90,7 @@ class Link {
 	 * Human readable information about the link, typically for display purposes
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.7.5
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.7.5
 	 */
 	protected $title;
 
@@ -101,7 +101,7 @@ class Link {
 	 * by the underlying protocol
 	 *
 	 * @var integer
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.7.6
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.7.6
 	 */
 	protected $length;
 

@@ -10,8 +10,8 @@ use Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\Atom
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication/#contentElement
- * @see https://tools.ietf.org/html/rfc4287#section-4.1.3
+ * @link http://atomenabled.org/developers/syndication/#contentElement
+ * @link https://tools.ietf.org/html/rfc4287#section-4.1.3
  */
 class Other extends AtomSyndicationFormat\Content\Inline {
 
@@ -20,8 +20,8 @@ class Other extends AtomSyndicationFormat\Content\Inline {
 	 * MIME Media type of the content
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.1.3.1
-	 * @see https://tools.ietf.org/html/rfc4287#ref-MIMEREG
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.1.3.1
+	 * @link https://tools.ietf.org/html/rfc4287#ref-MIMEREG
 	 */
 	protected $type;
 

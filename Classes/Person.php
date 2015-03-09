@@ -10,8 +10,8 @@ namespace Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication/#person
- * @see https://tools.ietf.org/html/rfc4287#section-3.2
+ * @link http://atomenabled.org/developers/syndication/#person
+ * @link https://tools.ietf.org/html/rfc4287#section-3.2
  */
 class Person {
 
@@ -22,7 +22,7 @@ class Person {
 	 * Human readable name for the person
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-3.2.1
+	 * @link https://tools.ietf.org/html/rfc4287#section-3.2.1
 	 */
 	protected $name;
 
@@ -34,8 +34,8 @@ class Person {
 	 * An IRI associated with the person (e.g. their website)
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-3.2.2
-	 * @see https://tools.ietf.org/html/rfc3987 (Internationalized Resource Identifiers IRIs)
+	 * @link https://tools.ietf.org/html/rfc4287#section-3.2.2
+	 * @link https://tools.ietf.org/html/rfc3987 (Internationalized Resource Identifiers IRIs)
 	 */
 	protected $uri;
 
@@ -43,8 +43,8 @@ class Person {
 	 * Email
 	 *
 	 * @var string E-mail address associated with the person
-	 * @see https://tools.ietf.org/html/rfc4287#section-3.2.3
-	 * @see https://tools.ietf.org/html/rfc2822
+	 * @link https://tools.ietf.org/html/rfc4287#section-3.2.3
+	 * @link https://tools.ietf.org/html/rfc2822
 	 */
 	protected $email;
 

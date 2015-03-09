@@ -10,8 +10,8 @@ namespace Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication/#text
- * @see https://tools.ietf.org/html/rfc4287#section-3.1
+ * @link http://atomenabled.org/developers/syndication/#text
+ * @link https://tools.ietf.org/html/rfc4287#section-3.1
  */
 class Text {
 
@@ -43,7 +43,7 @@ class Text {
 	 * Must be one of the TYPE_* constants. If not set, TYPE_TEXT is assumed.
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-3.1.1
+	 * @link https://tools.ietf.org/html/rfc4287#section-3.1.1
 	 */
 	protected $type = self::TYPE_TEXT;
 

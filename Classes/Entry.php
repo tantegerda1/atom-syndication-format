@@ -9,8 +9,8 @@ namespace Netztechniker\AtomSyndicationFormat;
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  * @date 2015-03-01
  *
- * @see http://atomenabled.org/developers/syndication
- * @see https://tools.ietf.org/html/rfc4287#section-4.1.2
+ * @link http://atomenabled.org/developers/syndication
+ * @link https://tools.ietf.org/html/rfc4287#section-4.1.2
  */
 class Entry {
 
@@ -27,8 +27,8 @@ class Entry {
 	 * they represent the same entry at different points in time
 	 *
 	 * @var string
-	 * @see http://atomenabled.org/developers/syndication/#requiredEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.6
+	 * @link http://atomenabled.org/developers/syndication/#requiredEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.6
 	 */
 	protected $id;
 
@@ -38,8 +38,8 @@ class Entry {
 	 * A human readable title for the entry.
 	 *
 	 * @var Text
-	 * @see http://atomenabled.org/developers/syndication/#requiredEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.14
+	 * @link http://atomenabled.org/developers/syndication/#requiredEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.14
 	 */
 	protected $title;
 
@@ -50,8 +50,8 @@ class Entry {
 	 * fixed, only after a substantial modification.
 	 *
 	 * @var \DateTime
-	 * @see http://atomenabled.org/developers/syndication/#requiredEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.15
+	 * @link http://atomenabled.org/developers/syndication/#requiredEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.15
 	 */
 	protected $updated;
 
@@ -65,8 +65,8 @@ class Entry {
 	 * enclosed source element.
 	 *
 	 * @var \SplObjectStorage<Person>
-	 * @see http://atomenabled.org/developers/syndication/#recommendedEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.1.2
+	 * @link http://atomenabled.org/developers/syndication/#recommendedEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.1.2
 	 */
 	protected $authors;
 
@@ -86,9 +86,9 @@ class Entry {
 	 * Identifies related web pages and other resources. An entry must contain an alternate link if there is no content.
 	 *
 	 * @var \SplObjectStorage<Link>
-	 * @see http://atomenabled.org/developers/syndication/#recommendedEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.7
-	 * @see https://tools.ietf.org/html/rfc5988#appendix-B
+	 * @link http://atomenabled.org/developers/syndication/#recommendedEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.7
+	 * @link https://tools.ietf.org/html/rfc5988#appendix-B
 	 */
 	protected $links;
 
@@ -108,8 +108,8 @@ class Entry {
 	 * Categories that the entry belongs to
 	 *
 	 * @var \SplObjectStorage<Category>
-	 * @see http://atomenabled.org/developers/syndication/#optionalEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.2
+	 * @link http://atomenabled.org/developers/syndication/#optionalEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.2
 	 */
 	protected $categories;
 
@@ -117,8 +117,8 @@ class Entry {
 	 * Contributors to the entry
 	 *
 	 * @var \SplObjectStorage<Person>
-	 * @see http://atomenabled.org/developers/syndication/#optionalEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.3
+	 * @link http://atomenabled.org/developers/syndication/#optionalEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.3
 	 */
 	protected $contributors;
 
@@ -126,8 +126,8 @@ class Entry {
 	 * Time of the initial creation or first availability of the entry
 	 *
 	 * @var \DateTime
-	 * @see http://atomenabled.org/developers/syndication/#optionalEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.9
+	 * @link http://atomenabled.org/developers/syndication/#optionalEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.9
 	 */
 	protected $published;
 
@@ -139,8 +139,8 @@ class Entry {
 	 * author, contributor, rights, or category and those child elements are not present in the source entry.
 	 *
 	 * @var Feed
-	 * @see http://atomenabled.org/developers/syndication/#optionalEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.11
+	 * @link http://atomenabled.org/developers/syndication/#optionalEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.11
 	 */
 	protected $source;
 
@@ -150,8 +150,8 @@ class Entry {
 	 * Conveys information about rights, e.g. copyrights, held in and over the entry.
 	 *
 	 * @var Text
-	 * @see http://atomenabled.org/developers/syndication/#optionalEntryElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.10
+	 * @link http://atomenabled.org/developers/syndication/#optionalEntryElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.10
 	 */
 	protected $rights;
 

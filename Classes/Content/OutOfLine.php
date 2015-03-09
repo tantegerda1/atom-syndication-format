@@ -12,8 +12,8 @@ use Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\Atom
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication/#contentElement
- * @see https://tools.ietf.org/html/rfc4287#section-4.1.3
+ * @link http://atomenabled.org/developers/syndication/#contentElement
+ * @link https://tools.ietf.org/html/rfc4287#section-4.1.3
  */
 class OutOfLine extends AtomSyndicationFormat\Content {
 
@@ -22,8 +22,8 @@ class OutOfLine extends AtomSyndicationFormat\Content {
 	 * IRI of the referenced resource
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.1.3.2
-	 * @see https://tools.ietf.org/html/rfc3987
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.1.3.2
+	 * @link https://tools.ietf.org/html/rfc3987
 	 */
 	protected $src;
 
@@ -33,8 +33,8 @@ class OutOfLine extends AtomSyndicationFormat\Content {
 	 * MIME Media type of the resource
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.1.3.1
-	 * @see https://tools.ietf.org/html/rfc4287#ref-MIMEREG
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.1.3.1
+	 * @link https://tools.ietf.org/html/rfc4287#ref-MIMEREG
 	 */
 	protected $type;
 

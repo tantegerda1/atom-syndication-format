@@ -10,8 +10,8 @@ namespace Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication/#category
- * @see https://tools.ietf.org/html/rfc4287#section-4.2.2
+ * @link http://atomenabled.org/developers/syndication/#category
+ * @link https://tools.ietf.org/html/rfc4287#section-4.2.2
  */
 class Category {
 
@@ -25,7 +25,7 @@ class Category {
 	 * Category identification
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.2.1
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.2.1
 	 */
 	protected $term;
 
@@ -37,7 +37,7 @@ class Category {
 	 * An IRI that identifies a categorization scheme
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.2.2
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.2.2
 	 */
 	protected $scheme;
 
@@ -45,7 +45,7 @@ class Category {
 	 * Human-readable label for display in end-user applications
 	 *
 	 * @var string
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.2.3
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.2.3
 	 */
 	protected $label;
 

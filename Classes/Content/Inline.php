@@ -12,8 +12,8 @@ use Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication/#contentElement
- * @see https://tools.ietf.org/html/rfc4287#section-4.1.3
+ * @link http://atomenabled.org/developers/syndication/#contentElement
+ * @link https://tools.ietf.org/html/rfc4287#section-4.1.3
  */
 abstract class Inline extends AtomSyndicationFormat\Content {
 

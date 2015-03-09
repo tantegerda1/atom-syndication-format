@@ -10,8 +10,8 @@ use \SplObjectStorage;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @see http://atomenabled.org/developers/syndication
- * @see https://tools.ietf.org/html/rfc4287#section-4.1.1
+ * @link http://atomenabled.org/developers/syndication
+ * @link https://tools.ietf.org/html/rfc4287#section-4.1.1
  */
 class Feed {
 
@@ -23,8 +23,8 @@ class Feed {
 	 * on your Internet domain name, then you can feel free to use your website’s address.
 	 *
 	 * @var string
-	 * @see http://atomenabled.org/developers/syndication/#requiredFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.6
+	 * @link http://atomenabled.org/developers/syndication/#requiredFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.6
 	 */
 	protected $id;
 
@@ -34,8 +34,8 @@ class Feed {
 	 * A human readable title for the feed. Often the same as the title of the associated website.
 	 *
 	 * @var Text
-	 * @see http://atomenabled.org/developers/syndication/#requiredFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.14
+	 * @link http://atomenabled.org/developers/syndication/#requiredFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.14
 	 */
 	protected $title;
 
@@ -51,8 +51,8 @@ class Feed {
 	 * TODO: recheck my interpretation of the standard
 	 *
 	 * @var \DateTime
-	 * @see http://atomenabled.org/developers/syndication/#requiredFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.15
+	 * @link http://atomenabled.org/developers/syndication/#requiredFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.15
 	 */
 	protected $updated;
 
@@ -65,8 +65,8 @@ class Feed {
 	 * author element unless all of the entry elements contain at least one author element.
 	 *
 	 * @var \SplObjectStorage<Person>
-	 * @see http://atomenabled.org/developers/syndication/#recommendedFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.1
+	 * @link http://atomenabled.org/developers/syndication/#recommendedFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.1
 	 */
 	protected $authors;
 
@@ -77,9 +77,9 @@ class Feed {
 	 * rel=self).
 	 *
 	 * @var \SplObjectStorage<Link>
-	 * @see http://atomenabled.org/developers/syndication/#recommendedFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.7
-	 * @see https://tools.ietf.org/html/rfc5988#appendix-B
+	 * @link http://atomenabled.org/developers/syndication/#recommendedFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.7
+	 * @link https://tools.ietf.org/html/rfc5988#appendix-B
 	 */
 	protected $links;
 
@@ -89,8 +89,8 @@ class Feed {
 	 * Categories that the feed belongs to
 	 *
 	 * @var \SplObjectStorage<Category>
-	 * @see http://atomenabled.org/developers/syndication/#optionalFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.2
+	 * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.2
 	 */
 	protected $categories;
 
@@ -98,8 +98,8 @@ class Feed {
 	 * Contributors to the feed
 	 *
 	 * @var \SplObjectStorage<Person>
-	 * @see http://atomenabled.org/developers/syndication/#optionalFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.3
+	 * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.3
 	 */
 	protected $contributors;
 
@@ -109,8 +109,8 @@ class Feed {
 	 * Identifies the agent used to generate a feed, for debugging and other purposes.
 	 *
 	 * @var Generator|NULL
-	 * @see http://atomenabled.org/developers/syndication/#optionalFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.4
+	 * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.4
 	 */
 	protected $generator = NULL;
 
@@ -120,8 +120,8 @@ class Feed {
 	 * IRI reference to a small image which provides iconic visual identification for the feed. Should be square.
 	 *
 	 * @var string|NULL
-	 * @see http://atomenabled.org/developers/syndication/#optionalFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.5
+	 * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.5
 	 */
 	protected $icon;
 
@@ -132,8 +132,8 @@ class Feed {
 	 * tall.
 	 *
 	 * @var string|NULL
-	 * @see http://atomenabled.org/developers/syndication/#optionalFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.8
+	 * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.8
 	 */
 	protected $logo;
 
@@ -143,8 +143,8 @@ class Feed {
 	 * Conveys information about rights, e.g. copyrights, held in and over the feed.
 	 *
 	 * @var Text|NULL
-	 * @see http://atomenabled.org/developers/syndication/#optionalFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.10
+	 * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.10
 	 */
 	protected $rights;
 
@@ -154,8 +154,8 @@ class Feed {
 	 * Human readable description or subtitle for the feed.
 	 *
 	 * @var Text|NULL
-	 * @see http://atomenabled.org/developers/syndication/#optionalFeedElements
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.2.12
+	 * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.2.12
 	 */
 	protected $subtitle;
 
@@ -165,7 +165,7 @@ class Feed {
 	 * Entries
 	 *
 	 * @var \SplObjectStorage<Entry>
-	 * @see https://tools.ietf.org/html/rfc4287#section-4.1.2
+	 * @link https://tools.ietf.org/html/rfc4287#section-4.1.2
 	 */
 	protected $entries;
 
@@ -245,7 +245,7 @@ class Feed {
 	 * Note that that an Atom document must be served as MIME type application/atom+xml.
 	 *
 	 * @return string An XML string representing this feed
-	 * @see https://tools.ietf.org/html/rfc4287#section-7
+	 * @link https://tools.ietf.org/html/rfc4287#section-7
 	 */
 	public function __toString() {
 
