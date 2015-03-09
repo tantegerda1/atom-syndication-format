@@ -9,7 +9,6 @@ use \SplObjectStorage;
  *
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
- * @date 2015-03-01
  *
  * @see http://atomenabled.org/developers/syndication
  * @see https://tools.ietf.org/html/rfc4287#section-4.1.1
