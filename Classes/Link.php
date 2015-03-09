@@ -393,7 +393,7 @@ class Link {
 	 * @throws \InvalidArgumentException 1425164433 if $length is not a valid length
 	 */
 	public function setLength($length) {
-		if (!MathUtility::isIntegerInRange($length, 0, PHP_INT_MAX)) {
+		if (!is_int($length) || $length < 0 || $length > PHP_INT_MAX) {
 			throw new \InvalidArgumentException('Argument $length is not a valid length: ' . $length, 1425164433);
 		}
 		$this->length = $length;
@@ -406,6 +406,6 @@ class Link {
 	 * @return TRUE if this link has a length specified, FALSE otherwise
 	 */
 	public function hasLength() {
-		return MathUtility::isIntegerInRange($this->length, 0, PHP_INT_MAX);
+		return is_int($this->length) && $this->length >= 0 && $this->length < PHP_INT_MAX;
 	}
 }
