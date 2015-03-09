@@ -1,8 +1,6 @@
 <?php
 namespace Netztechniker\AtomSyndicationFormat;
 
-use TYPO3\CMS\Core\Utility\MathUtility;
-
 
 /**
  * Link
