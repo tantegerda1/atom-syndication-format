@@ -369,7 +369,7 @@ class Link {
 	 * @return TRUE if this link has a title attribute set, FALSE otherwise
 	 */
 	public function hasTitle() {
-		return is_string($this->title) && '' === $this->title;
+		return is_string($this->title) && '' !== $this->title;
 	}
 
 	/**
