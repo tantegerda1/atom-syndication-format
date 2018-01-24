@@ -15,7 +15,7 @@ This is alpha-state software. Its class and method signatures will change. As so
 Thanks
 ======
 
-AtomEnabled: I mostly copied their documentation from http://atomenabled.org/developers/syndication/_
+AtomEnabled: I mostly copied their documentation.
 
 
 

@@ -9,7 +9,6 @@ use \SplObjectStorage;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @link http://atomenabled.org/developers/syndication
  * @link https://tools.ietf.org/html/rfc4287#section-4.1.1
  */
 class Feed
@@ -23,7 +22,6 @@ class Feed
      * on your Internet domain name, then you can feel free to use your website’s address.
      *
      * @var string
-     * @link http://atomenabled.org/developers/syndication/#requiredFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.6
      */
     protected $id;
@@ -34,7 +32,6 @@ class Feed
      * A human readable title for the feed. Often the same as the title of the associated website.
      *
      * @var Text
-     * @link http://atomenabled.org/developers/syndication/#requiredFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.14
      */
     protected $title;
@@ -51,7 +48,6 @@ class Feed
      * TODO: recheck my interpretation of the standard
      *
      * @var \DateTime
-     * @link http://atomenabled.org/developers/syndication/#requiredFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.15
      */
     protected $updated;
@@ -65,7 +61,6 @@ class Feed
      * author element unless all of the entry elements contain at least one author element.
      *
      * @var \SplObjectStorage<Person>
-     * @link http://atomenabled.org/developers/syndication/#recommendedFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.1
      */
     protected $authors;
@@ -77,7 +72,6 @@ class Feed
      * rel=self).
      *
      * @var \SplObjectStorage<Link>
-     * @link http://atomenabled.org/developers/syndication/#recommendedFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.7
      * @link https://tools.ietf.org/html/rfc5988#appendix-B
      */
@@ -89,7 +83,6 @@ class Feed
      * Categories that the feed belongs to
      *
      * @var \SplObjectStorage<Category>
-     * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.2
      */
     protected $categories;
@@ -98,8 +91,6 @@ class Feed
      * Contributors to the feed
      *
      * @var \SplObjectStorage<Person>
-     * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
-     * @link https://tools.ietf.org/html/rfc4287#section-4.2.3
      */
     protected $contributors;
 
@@ -109,7 +100,6 @@ class Feed
      * Identifies the agent used to generate a feed, for debugging and other purposes.
      *
      * @var Generator|NULL
-     * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.4
      */
     protected $generator = null;
@@ -120,7 +110,6 @@ class Feed
      * IRI reference to a small image which provides iconic visual identification for the feed. Should be square.
      *
      * @var string|NULL
-     * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.5
      */
     protected $icon;
@@ -132,7 +121,6 @@ class Feed
      * tall.
      *
      * @var string|NULL
-     * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.8
      */
     protected $logo;
@@ -143,7 +131,6 @@ class Feed
      * Conveys information about rights, e.g. copyrights, held in and over the feed.
      *
      * @var Text|NULL
-     * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.10
      */
     protected $rights;
@@ -154,7 +141,6 @@ class Feed
      * Human readable description or subtitle for the feed.
      *
      * @var Text|NULL
-     * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.12
      */
     protected $subtitle;

@@ -9,7 +9,6 @@ namespace Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @link http://atomenabled.org/developers/syndication/#link
  * @link https://tools.ietf.org/html/rfc4287#section-4.2.7
  */
 class Link
@@ -66,7 +65,6 @@ class Link
      *
      * @var string
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.7.2
-     * http://atomenabled.org/developers/syndication/#extensibility
      */
     protected $rel;
 

@@ -10,7 +10,6 @@ namespace Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @link http://atomenabled.org/developers/syndication/#category
  * @link https://tools.ietf.org/html/rfc4287#section-4.2.2
  */
 class Category

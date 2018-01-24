@@ -9,7 +9,6 @@ namespace Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\AtomSyndicationFormat
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @link http://atomenabled.org/developers/syndication/#optionalFeedElements
  * @link https://tools.ietf.org/html/rfc4287#section-4.2.4
  */
 class Generator

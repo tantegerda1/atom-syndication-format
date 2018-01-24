@@ -9,7 +9,6 @@ use Netztechniker\AtomSyndicationFormat;
  * @package Netztechniker\Atom
  * @author Ludwig Rafelsberger <info@netztechniker.at>, netztechniker.at
  *
- * @link http://atomenabled.org/developers/syndication/#contentElement
  * @link https://tools.ietf.org/html/rfc4287#section-4.1.3
  */
 class Other extends AtomSyndicationFormat\Content\Inline
