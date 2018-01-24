@@ -1,8 +1,6 @@
 <?php
 namespace Netztechniker\AtomSyndicationFormat;
 
-use \SplObjectStorage;
-
 /**
  * An RFC 4287 Atom feed
  *
