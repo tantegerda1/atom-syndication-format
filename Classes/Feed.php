@@ -100,7 +100,7 @@ class Feed
      * @var Generator|NULL
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.4
      */
-    protected $generator = null;
+    protected $generator;
 
     /**
      * Icon
