@@ -3,7 +3,7 @@
   "description": "Models the RFC 4287 specification (Atom Syndication Format).",
   "keywords": ["Atom", "RFC 4287", "feed", "developer"],
   "homepage": "https://github.com/tantegerda1/atom-syndication-format",
-  "license": "GPL-3.0+",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Ludwig Rafelsberger",
@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": ">= 5.6.0, <= 7.1.99",
+    "php": ">= 5.6.0, <= 7.2.99",
     "ext-dom": "*"
   },
   "autoload": {
