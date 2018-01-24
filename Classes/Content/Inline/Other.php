@@ -62,11 +62,9 @@ class Other extends AtomSyndicationFormat\Content\Inline
      */
     public function getContent($base64Decode = true)
     {
-        if (true === $base64Decode) {
-            return base64_decode($this->content);
-        } else {
-            return $this->content;
-        }
+        return $base64Decode
+            ? base64_decode($this->content)
+            : $this->content;
     }
 
     /**
@@ -85,11 +83,9 @@ class Other extends AtomSyndicationFormat\Content\Inline
         if (!is_string($content)) {
             throw new \InvalidArgumentException('Argument $content is not a valid content: ' . $content, 1425164444);
         }
-        if (true === $isBase64Encoded) {
-            $this->content = $content;
-        } else {
-            $this->content = base64_encode($content);
-        }
+        $this->content = $isBase64Encoded
+            ? $content
+            : base64_encode($content);
 
         return $this;
     }
