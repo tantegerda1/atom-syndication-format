@@ -69,10 +69,10 @@ class Category
     public function __construct($term, $scheme = null, $label = null)
     {
         $this->setTerm($term);
-        if (!is_null($scheme)) {
+        if (null !== $scheme) {
             $this->setScheme($scheme);
         }
-        if (!is_null($label)) {
+        if (null !== $label) {
             $this->setLabel($label);
         }
     }

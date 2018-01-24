@@ -67,7 +67,7 @@ class Text
     public function __construct($text, $type = null)
     {
         $this->setText($text);
-        if (!is_null($type)) {
+        if (null !== $type) {
             $this->setType($type);
         }
     }

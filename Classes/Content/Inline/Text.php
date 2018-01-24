@@ -48,7 +48,7 @@ class Text extends AtomSyndicationFormat\Content\Inline
     public function __construct($content, $type = null)
     {
         $this->setContent($content);
-        if (!is_null($type)) {
+        if (null !== $type) {
             $this->setType($type);
         }
     }

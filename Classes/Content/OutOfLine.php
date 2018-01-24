@@ -55,7 +55,7 @@ class OutOfLine extends AtomSyndicationFormat\Content
     public function __construct($src, $type = null)
     {
         $this->setSrc($src);
-        if (!is_null($type)) {
+        if (null !== $type) {
             $this->setType($type);
         }
     }

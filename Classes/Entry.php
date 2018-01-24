@@ -184,23 +184,23 @@ class Entry
             ->setId($id)
             ->setTitle($title)
             ->setUpdated($updated);
-        $this->setAuthors(!is_null($authors) ? $authors : new \SplObjectStorage());
-        if (!is_null($content)) {
+        $this->setAuthors(null !== $authors ? $authors : new \SplObjectStorage());
+        if (null !== $content) {
             $this->setContent($content);
         }
-        $this->setLinks(!is_null($links) ? $links : new \SplObjectStorage());
-        if (!is_null($summary)) {
+        $this->setLinks(null !== $links ? $links : new \SplObjectStorage());
+        if (null !== $summary) {
             $this->setSummary($summary);
         }
-        $this->setCategories(!is_null($categories) ? $categories : new \SplObjectStorage());
-        $this->setContributors(!is_null($contributors) ? $contributors : new \SplObjectStorage());
-        if (!is_null($published)) {
+        $this->setCategories(null !== $categories ? $categories : new \SplObjectStorage());
+        $this->setContributors(null !== $contributors ? $contributors : new \SplObjectStorage());
+        if (null !== $published) {
             $this->setPublished($published);
         }
-        if (!is_null($source)) {
+        if (null !== $source) {
             $this->setSource($source);
         }
-        if (!is_null($rights)) {
+        if (null !== $rights) {
             $this->rights = $rights;
         }
     }

@@ -68,10 +68,10 @@ class Person
     public function __construct($name, $uri = null, $email = null)
     {
         $this->setName($name);
-        if (!is_null($uri)) {
+        if (null !== $uri) {
             $this->setUri($uri);
         }
-        if (!is_null($email)) {
+        if (null !== $email) {
             $this->setEmail($email);
         }
     }

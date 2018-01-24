@@ -201,22 +201,22 @@ class Feed
         $this->setLinks(!is_null($links) ? $links : new \SplObjectStorage());
         $this->setCategories(!is_null($categories) ? $categories : new \SplObjectStorage());
         $this->setContributors(!is_null($contributors) ? $contributors : new \SplObjectStorage());
-        if (!is_null($generator)) {
+        if (null !== $generator) {
             $this->setGenerator($generator);
         }
-        if (!is_null($icon)) {
+        if (null !== $icon) {
             $this->setIcon($icon);
         }
-        if (!is_null($logo)) {
+        if (null !== $logo) {
             $this->setLogo($logo);
         }
-        if (!is_null($rights)) {
+        if (null !== $rights) {
             $this->setRights($rights);
         }
-        if (!is_null($subtitle)) {
+        if (null !== $subtitle) {
             $this->setSubtitle($subtitle);
         }
-        $this->setEntries(!is_null($entries) ? $entries : new \SplObjectStorage());
+        $this->setEntries(null !== $entries ? $entries : new \SplObjectStorage());
     }
 
 

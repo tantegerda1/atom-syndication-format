@@ -132,19 +132,19 @@ class Link
     public function __construct($href, $rel = null, $type = null, $hreflang = null, $title = null, $length = null)
     {
         $this->setHref($href);
-        if (!is_null($rel)) {
+        if (null !== $rel) {
             $this->setRel($rel);
         }
-        if (!is_null($type)) {
+        if (null !== $type) {
             $this->setType($type);
         }
-        if (!is_null($hreflang)) {
+        if (null !== $hreflang) {
             $this->setHreflang($hreflang);
         }
-        if (!is_null($title)) {
+        if (null !== $title) {
             $this->setTitle($title);
         }
-        if (!is_null($length)) {
+        if (null !== $length) {
             $this->setLength($length);
         }
     }

@@ -41,7 +41,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
     public function __construct($content, $type = null, $isBase64Encoded = false)
     {
         $this->setContent($content, $isBase64Encoded);
-        if (!is_null($type)) {
+        if (null !== $type) {
             $this->setType($type);
         }
     }

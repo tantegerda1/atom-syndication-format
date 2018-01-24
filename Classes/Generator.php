@@ -65,10 +65,10 @@ class Generator
     public function __construct($name, $uri = null, $version = null)
     {
         $this->setName($name);
-        if (!is_null($uri)) {
+        if (null !== $uri) {
             $this->setUri($uri);
         }
-        if (!is_null($version)) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
     }
