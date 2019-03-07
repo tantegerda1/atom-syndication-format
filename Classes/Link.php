@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat;
 
 /**
@@ -15,33 +16,33 @@ class Link
 {
 
     /** Name of XML tag */
-    const TAG_NAME = 'link';
+    public const TAG_NAME = 'link';
 
     /** An alternate representation of the entry or feed, for example a permalink to the html version of the entry,
      * or the front page of the weblog */
-    const REL_ALTERNATE = 'alternate';
+    public const REL_ALTERNATE = 'alternate';
 
     /** a related resource which is potentially large in size and might require special handling, for example an audio
      * or video recording */
-    const REL_ENCLOSURE = 'enclosure';
+    public const REL_ENCLOSURE = 'enclosure';
 
     /** A document related to the entry or feed */
-    const REL_RELATED = 'related';
+    public const REL_RELATED = 'related';
 
     /** The feed or entry itself */
-    const REL_SELF = 'self';
+    public const REL_SELF = 'self';
 
     /** The source of the information provided in the entry */
-    const REL_VIA = 'via';
+    public const REL_VIA = 'via';
 
     /** Pattern to match a RFC 4288 MIME type
      *
      * @link https://tools.ietf.org/html/rfc4288#section-4.2
      */
-    const MIME_PATTERN = '%^[[:alpha:][:digit:]!#\\$&\\.\\+\\-\\^_]{1,127}/[[:alpha:][:digit:]!#\\$&\\.\\+\\-\\^_]{1,127}$%';
+    public const MIME_PATTERN = '%^[[:alpha:][:digit:]!#\\$&\\.\\+\\-\\^_]{1,127}/[[:alpha:][:digit:]!#\\$&\\.\\+\\-\\^_]{1,127}$%';
 
     /** Pattern to match a RFC 3066 Language Tag */
-    const LANG_PATTERN = '/^[[:alpha:]]{1,8}(\\-[[:alpha:][:digit:]]{1,8})?$/';
+    public const LANG_PATTERN = '/^[[:alpha:]]{1,8}(\\-[[:alpha:][:digit:]]{1,8})?$/';
 
 
 
@@ -129,7 +130,7 @@ class Link
      * @throws \InvalidArgumentException 1425164431 if $title is set but no valid title
      * @throws \InvalidArgumentException 1425164433 if $length is set but not a valid length
      */
-    public function __construct($href, $rel = null, $type = null, $hreflang = null, $title = null, $length = null)
+    public function __construct(string $href, ?string $rel = null, ?string $type = null, ?string $hreflang = null, ?string $title = null, ?int $length = null)
     {
         $this->setHref($href);
         if (null !== $rel) {
@@ -162,7 +163,7 @@ class Link
      *
      * @return \DOMElement A XML node representing this link
      */
-    public function toXML(\DOMElement $de)
+    public function toXML(\DOMElement $de): \DOMElement
     {
 
         // required
@@ -196,7 +197,7 @@ class Link
      *
      * @return string IRI of the referenced resource (typically a Web page)
      */
-    public function getHref()
+    public function getHref(): string
     {
         return $this->href;
     }
@@ -209,9 +210,9 @@ class Link
      * @return Link $this for fluent calls
      * @throws \InvalidArgumentException 1425164423 if $href is not a valid IRI
      */
-    public function setHref($href)
+    public function setHref(string $href): self
     {
-        if (!is_string($href) || '' === $href) {
+        if ('' === $href) {
             throw new \InvalidArgumentException('Argument $href is not a valid IRI: ' . $href, 1425164423);
         }
         $this->href = $href;
@@ -224,7 +225,7 @@ class Link
      * @return string Link relationship type, can be a full URI (for extensibility) or one of REL_* constants
      * @throws \RuntimeException 1425164424 if the link has no rel attribute set
      */
-    public function getRel()
+    public function getRel(): string
     {
         if (!$this->hasRel()) {
             throw new \RuntimeException('Link has no rel attribute set', 1425164424);
@@ -240,9 +241,9 @@ class Link
      * @return Link $this for fluent calls
      * @throws \InvalidArgumentException 1425164425 if $rel is no valid link relationship type
      */
-    public function setRel($rel)
+    public function setRel(string $rel): self
     {
-        if (!is_string($rel) || '' === $rel) {
+        if ('' === $rel) {
             throw new \InvalidArgumentException(
                 'Argument $rel is not a valid link relationship type: ' . $rel, 1425164425);
         }
@@ -265,7 +266,7 @@ class Link
      *
      * @return TRUE if this link has a rel attribute, FALSE otherwise
      */
-    public function hasRel()
+    public function hasRel(): bool
     {
         return is_string($this->rel) && '' !== $this->rel;
     }
@@ -276,7 +277,7 @@ class Link
      * @return string MIME Media type of the resource
      * @throws \RuntimeException 1425164426 if the link has no MIME Media Type set
      */
-    public function getType()
+    public function getType(): string
     {
         if (!$this->hasType()) {
             throw new \RuntimeException('Link has no MIME Media Type set', 1425164426);
@@ -292,9 +293,9 @@ class Link
      * @return Link $this for fluent calls
      * @throws \InvalidArgumentException 1425164427 if $type is no valid MIME type
      */
-    public function setType($type)
+    public function setType(string $type): self
     {
-        if (!is_string($type) || '' === $type || 1 !== preg_match(self::MIME_PATTERN, $type)) {
+        if ('' === $type || 1 !== preg_match(self::MIME_PATTERN, $type)) {
             throw new \InvalidArgumentException('Argument $type is not a valid MIME type: ' . $type, 1425164427);
         }
         $this->type = $type;
@@ -306,7 +307,7 @@ class Link
      *
      * @return TRUE if this link has a MIME Media Type set, FALSE otherwise
      */
-    public function hasType()
+    public function hasType(): bool
     {
         return is_string($this->type) && 1 === preg_match(self::MIME_PATTERN, $this->type);
     }
@@ -317,7 +318,7 @@ class Link
      * @return string Language of the referenced resource, a RFC3066 language tag
      * @throws \RuntimeException 1425164428 if the link does not define the language of the reference
      */
-    public function getHreflang()
+    public function getHreflang(): string
     {
         if (!$this->hasHreflang()) {
             throw new \RuntimeException('Link does not define the language of the reference', 1425164428);
@@ -333,9 +334,9 @@ class Link
      * @return Link $this for fluent calls
      * @throws \InvalidArgumentException 1425164429 if $hreflang is no valid RFC 3066 language tag
      */
-    public function setHreflang($hreflang)
+    public function setHreflang(string $hreflang): self
     {
-        if (!is_string($hreflang) || '' === $hreflang || 1 !== preg_match(self::LANG_PATTERN, $hreflang)) {
+        if ('' === $hreflang || 1 !== preg_match(self::LANG_PATTERN, $hreflang)) {
             throw new \InvalidArgumentException(
                 'Argument $hreflang is not a valid language tag: ' . $hreflang, 1425164429);
         }
@@ -348,7 +349,7 @@ class Link
      *
      * @return TRUE if this link defines the language of the reference, FALSE otherwise
      */
-    public function hasHreflang()
+    public function hasHreflang(): bool
     {
         return is_string($this->hreflang) && '' === $this->hreflang && 1 === preg_match(self::LANG_PATTERN, $this->hreflang);
     }
@@ -359,7 +360,7 @@ class Link
      * @return string Human-readable information about the link
      * @throws \RuntimeException 1425164430 if the link has no title set
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         if (!$this->hasTitle()) {
             throw new \RuntimeException('Link has no title set', 1425164430);
@@ -375,9 +376,9 @@ class Link
      * @return Link $this for fluent calls
      * @throws \InvalidArgumentException 1425164431 if $title is no valid title
      */
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
-        if (!is_string($title) || '' === $title) {
+        if ('' === $title) {
             throw new \InvalidArgumentException('Argument $title is not a valid title: ' . $title, 1425164431);
         }
         $this->title = $title;
@@ -389,7 +390,7 @@ class Link
      *
      * @return TRUE if this link has a title attribute set, FALSE otherwise
      */
-    public function hasTitle()
+    public function hasTitle(): bool
     {
         return is_string($this->title) && '' !== $this->title;
     }
@@ -400,7 +401,7 @@ class Link
      * @return integer Length of the resource (bytes)
      * @throws \RuntimeException 1425164432 if the link does not specify a length
      */
-    public function getLength()
+    public function getLength(): int
     {
         if (!$this->hasLength()) {
             throw new \RuntimeException('Link has no length specified', 1425164432);
@@ -416,9 +417,9 @@ class Link
      * @return Link $this for fluent calls
      * @throws \InvalidArgumentException 1425164433 if $length is not a valid length
      */
-    public function setLength($length)
+    public function setLength(int $length): self
     {
-        if (!is_int($length) || $length < 0 || $length > PHP_INT_MAX) {
+        if ($length < 0 || $length > PHP_INT_MAX) {
             throw new \InvalidArgumentException('Argument $length is not a valid length: ' . $length, 1425164433);
         }
         $this->length = $length;
@@ -430,7 +431,7 @@ class Link
      *
      * @return TRUE if this link has a length specified, FALSE otherwise
      */
-    public function hasLength()
+    public function hasLength(): bool
     {
         return is_int($this->length) && $this->length >= 0 && $this->length < PHP_INT_MAX;
     }

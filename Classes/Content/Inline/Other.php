@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat\Content\Inline;
 
 use Netztechniker\AtomSyndicationFormat;
@@ -38,7 +39,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
      * @throws \InvalidArgumentException 1425164444 if $content is not a valid content
      * @throws \InvalidArgumentException 1425164446 if $type is set but no valid MIME type
      */
-    public function __construct($content, $type = null, $isBase64Encoded = false)
+    public function __construct(string $content, ?string $type = null, ?bool $isBase64Encoded = false)
     {
         $this->setContent($content, $isBase64Encoded);
         if (null !== $type) {
@@ -60,7 +61,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
      *
      * @return string Content
      */
-    public function getContent($base64Decode = true)
+    public function getContent(?bool $base64Decode = true): string
     {
         return $base64Decode
             ? base64_decode($this->content)
@@ -76,13 +77,9 @@ class Other extends AtomSyndicationFormat\Content\Inline
      * @param boolean $isBase64Encoded TRUE if $content is already base64 encoded, FALSE otherwise
      *
      * @return Other $this for fluent calls
-     * @throws \InvalidArgumentException 1425164444 if $content is not a valid content
      */
-    public function setContent($content, $isBase64Encoded = false)
+    public function setContent(string $content, ?bool $isBase64Encoded = false): self
     {
-        if (!is_string($content)) {
-            throw new \InvalidArgumentException('Argument $content is not a valid content: ' . $content, 1425164444);
-        }
         $this->content = $isBase64Encoded
             ? $content
             : base64_encode($content);
@@ -96,7 +93,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
      * @return string MIME Media type of the resource
      * @throws \RuntimeException 1425164445 if the content defines no MIME Media type for the resource
      */
-    public function getType()
+    public function getType(): string
     {
         if (!$this->hasType()) {
             throw new \RuntimeException('Inline other content has no MIME Media Type set', 1425164445);
@@ -113,9 +110,9 @@ class Other extends AtomSyndicationFormat\Content\Inline
      * @return Other $this for fluent calls
      * @throws \InvalidArgumentException 1425164446 if $type is no valid MIME type
      */
-    public function setType($type)
+    public function setType(string $type): self
     {
-        if (!is_string($type) || '' === $type || 1 !== preg_match(AtomSyndicationFormat\Link::MIME_PATTERN, $type)) {
+        if ('' === $type || 1 !== preg_match(AtomSyndicationFormat\Link::MIME_PATTERN, $type)) {
             throw new \InvalidArgumentException('Argument $type is not a valid MIME type: ' . $type, 1425164446);
         }
         $this->type = $type;
@@ -128,7 +125,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
      *
      * @return TRUE if this content has a MIME Media Type set, FALSE otherwise
      */
-    public function hasType()
+    public function hasType(): bool
     {
         return is_string($this->type) && 1 === preg_match(AtomSyndicationFormat\Link::MIME_PATTERN, $this->type);
     }

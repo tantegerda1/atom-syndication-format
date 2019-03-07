@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat;
 
 
@@ -16,7 +17,7 @@ class Category
 {
 
     /** Name of XML tag */
-    const TAG_NAME = 'category';
+    public const TAG_NAME = 'category';
 
 
 
@@ -66,7 +67,7 @@ class Category
      * @throws \InvalidArgumentException 1425164415 if $scheme is set but not a valid IRI
      * @throws \InvalidArgumentException 1425164417 if $label is set bot not a valid label
      */
-    public function __construct($term, $scheme = null, $label = null)
+    public function __construct(string $term, ?string $scheme = null, ?string $label = null)
     {
         $this->setTerm($term);
         if (null !== $scheme) {
@@ -91,7 +92,7 @@ class Category
      *
      * @return \DOMElement A XML node representing this category
      */
-    public function toXML(\DOMElement $de)
+    public function toXML(\DOMElement $de): \DOMElement
     {
         $de->setAttribute('term', $this->getTerm());
         if ($this->hasScheme()) {
@@ -117,7 +118,7 @@ class Category
      *
      * @return string Category identification
      */
-    public function getTerm()
+    public function getTerm(): string
     {
         return $this->term;
     }
@@ -130,9 +131,9 @@ class Category
      * @return Category $this for fluent calls
      * @throws \InvalidArgumentException 1425164413 if $term is not a valid term
      */
-    public function setTerm($term)
+    public function setTerm(string $term): self
     {
-        if (!is_string($term) || '' === $term) {
+        if ('' === $term) {
             throw new \InvalidArgumentException('Argument $term is not a valid term: ' . $term, 1425164413);
         }
         $this->term = $term;
@@ -146,7 +147,7 @@ class Category
      * @return string IRI that identifies a categorization scheme
      * @throws \RuntimeException 1425164414 if the category has no scheme set
      */
-    public function getScheme()
+    public function getScheme(): string
     {
         if (!$this->hasScheme()) {
             throw new \RuntimeException('Category has no scheme set', 1425164414);
@@ -163,9 +164,9 @@ class Category
      * @return Category $this for fluent calls
      * @throws \InvalidArgumentException 1425164415 if $scheme is not a valid IRI
      */
-    public function setScheme($scheme)
+    public function setScheme(string $scheme): self
     {
-        if (!is_string($scheme) || '' === $scheme) {
+        if ('' === $scheme) {
             throw new \InvalidArgumentException('Argument $scheme is not a valid IRI: ' . $scheme, 1425164415);
         }
         $this->scheme = $scheme;
@@ -178,7 +179,7 @@ class Category
      *
      * @return TRUE if this category has a scheme attribute set, FALSE otherwise
      */
-    public function hasScheme()
+    public function hasScheme(): bool
     {
         return is_string($this->scheme) && '' !== $this->scheme;
     }
@@ -189,7 +190,7 @@ class Category
      * @return string Human-readable label for display in end-user applications
      * @throws \RuntimeException 1425164416 if the category has no label set
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         if (!$this->hasLabel()) {
             throw new \RuntimeException('Category has no label set', 1425164416);
@@ -206,9 +207,9 @@ class Category
      * @return Category $this for fluent calls
      * @throws \InvalidArgumentException 1425164417 if $label is not a valid label
      */
-    public function setLabel($label)
+    public function setLabel(string $label): self
     {
-        if (!is_string($label) || '' === $label) {
+        if ('' === $label) {
             throw new \InvalidArgumentException('Argument $label is not a valid label: ' . $label, 1425164417);
         }
         $this->label = $label;
@@ -221,7 +222,7 @@ class Category
      *
      * @return TRUE if this category has a human-readable label set, FALSE otherwise
      */
-    public function hasLabel()
+    public function hasLabel(): bool
     {
         return is_string($this->label) && '' !== $this->label;
     }

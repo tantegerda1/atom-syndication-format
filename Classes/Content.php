@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat;
 
 
@@ -16,7 +17,7 @@ abstract class Content
 {
 
     /** Name of XML tag */
-    const TAG_NAME = 'content';
+    public const TAG_NAME = 'content';
 
 
 
@@ -40,7 +41,7 @@ abstract class Content
      *
      * @return \DOMElement A XML node representing this content
      */
-    abstract public function toXML(\DOMElement $de);
+    abstract public function toXML(\DOMElement $de): \DOMElement;
 
 
 
@@ -54,7 +55,7 @@ abstract class Content
      * @return Content $this for fluent calls
      * @throws \InvalidArgumentException if $type is invalid in the current context
      */
-    abstract public function setType($type);
+    abstract public function setType(string $type);
 
     /**
      * Get Type
@@ -62,5 +63,5 @@ abstract class Content
      * @return string Type
      * @throws \RuntimeException if the Content has no type attribute set
      */
-    abstract public function getType();
+    abstract public function getType(): string;
 }

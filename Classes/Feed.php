@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat;
 
 /**
@@ -184,10 +185,10 @@ class Feed
      * @throws \InvalidArgumentException 1425164405 if $logo is set but not a valid logo
      */
     public function __construct(
-        $id, Text $title, \DateTime $updated,
+        string $id, Text $title, \DateTime $updated,
         \SplObjectStorage $authors = null, \SplObjectStorage $links = null,
         \SplObjectStorage $categories = null, \SplObjectStorage $contributors = null, Generator $generator = null,
-        $icon = null, $logo = null, Text $rights = null, Text $subtitle = null,
+        ?string $icon = null, ?string $logo = null, Text $rights = null, Text $subtitle = null,
         \SplObjectStorage $entries = null
     )
     {
@@ -195,10 +196,10 @@ class Feed
             ->setId($id)
             ->setTitle($title)
             ->setUpdated($updated);
-        $this->setAuthors(!is_null($authors) ? $authors : new \SplObjectStorage());
-        $this->setLinks(!is_null($links) ? $links : new \SplObjectStorage());
-        $this->setCategories(!is_null($categories) ? $categories : new \SplObjectStorage());
-        $this->setContributors(!is_null($contributors) ? $contributors : new \SplObjectStorage());
+        $this->setAuthors($authors ?? new \SplObjectStorage());
+        $this->setLinks($links ?? new \SplObjectStorage());
+        $this->setCategories($categories ?? new \SplObjectStorage());
+        $this->setContributors($contributors ?? new \SplObjectStorage());
         if (null !== $generator) {
             $this->setGenerator($generator);
         }
@@ -214,7 +215,7 @@ class Feed
         if (null !== $subtitle) {
             $this->setSubtitle($subtitle);
         }
-        $this->setEntries(null !== $entries ? $entries : new \SplObjectStorage());
+        $this->setEntries($entries ?? new \SplObjectStorage());
     }
 
 
@@ -232,7 +233,7 @@ class Feed
      * @return string An XML string representing this feed
      * @link https://tools.ietf.org/html/rfc4287#section-7
      */
-    public function __toString()
+    public function __toString(): string
     {
         // required
         $xml = new \DOMDocument('1.0', 'utf-8');
@@ -299,7 +300,7 @@ class Feed
      *
      * @return string Feed ID. Identifies the feed using a universally unique and permanent URI.
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -313,9 +314,9 @@ class Feed
      *
      * @throws \InvalidArgumentException 1425164400 if $id is not a valid Feed ID
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
-        if (!is_string($id) || '' === $id) {
+        if ('' === $id) {
             throw new \InvalidArgumentException('Argument $id is not a valid ID: ' . $id, 1425164400);
         }
         $this->id = $id;
@@ -327,7 +328,7 @@ class Feed
      *
      * @return Text A human readable title for the feed. Often the same as the title of the associated website.
      */
-    public function getTitle()
+    public function getTitle(): Text
     {
         return $this->title;
     }
@@ -339,7 +340,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setTitle(Text $title)
+    public function setTitle(Text $title): self
     {
         $this->title = $title;
         return $this;
@@ -350,7 +351,7 @@ class Feed
      *
      * @return \DateTime Last modification time (only significant modifications!).
      */
-    public function getUpdated()
+    public function getUpdated(): \DateTime
     {
         return $this->updated;
     }
@@ -362,7 +363,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setUpdated(\DateTime $updated)
+    public function setUpdated(\DateTime $updated): self
     {
         $this->updated = $updated;
         return $this;
@@ -373,7 +374,7 @@ class Feed
      *
      * @return \SplObjectStorage<Person> Authors of the feed.
      */
-    public function getAuthors()
+    public function getAuthors(): \SplObjectStorage
     {
         return $this->authors;
     }
@@ -385,7 +386,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setAuthors(\SplObjectStorage $authors)
+    public function setAuthors(\SplObjectStorage $authors): self
     {
         $this->authors = $authors;
         return $this;
@@ -398,7 +399,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function addAuthor(Person $author)
+    public function addAuthor(Person $author): self
     {
         $this->authors->attach($author);
         return $this;
@@ -411,7 +412,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function removeAuthor(Person $author)
+    public function removeAuthor(Person $author): self
     {
         $this->authors->detach($author);
         return $this;
@@ -422,7 +423,7 @@ class Feed
      *
      * @return \SplObjectStorage<Link> Related web pages and other resources
      */
-    public function getLinks()
+    public function getLinks(): \SplObjectStorage
     {
         return $this->links;
     }
@@ -434,7 +435,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setLinks(\SplObjectStorage $links)
+    public function setLinks(\SplObjectStorage $links): self
     {
         $this->links = $links;
         return $this;
@@ -447,7 +448,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function addLink(Link $link)
+    public function addLink(Link $link): self
     {
         $this->links->attach($link);
         return $this;
@@ -460,7 +461,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function removeLink(Link $link)
+    public function removeLink(Link $link): self
     {
         $this->links->detach($link);
         return $this;
@@ -471,7 +472,7 @@ class Feed
      *
      * @return \SplObjectStorage<Category> Categories that the feed belongs to
      */
-    public function getCategories()
+    public function getCategories(): \SplObjectStorage
     {
         return $this->categories;
     }
@@ -483,7 +484,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setCategories(\SplObjectStorage $categories)
+    public function setCategories(\SplObjectStorage $categories): self
     {
         $this->categories = $categories;
         return $this;
@@ -496,7 +497,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function addCategory(Category $category)
+    public function addCategory(Category $category): self
     {
         $this->categories->attach($category);
         return $this;
@@ -509,7 +510,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function removeCategory(Category $category)
+    public function removeCategory(Category $category): self
     {
         $this->categories->detach($category);
         return $this;
@@ -520,7 +521,7 @@ class Feed
      *
      * @return \SplObjectStorage<Person> Contributors to the feed
      */
-    public function getContributors()
+    public function getContributors(): \SplObjectStorage
     {
         return $this->contributors;
     }
@@ -532,7 +533,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setContributors(\SplObjectStorage $contributors)
+    public function setContributors(\SplObjectStorage $contributors): self
     {
         $this->contributors = $contributors;
         return $this;
@@ -545,7 +546,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function addContributor(Person $contributor)
+    public function addContributor(Person $contributor): self
     {
         $this->contributors->attach($contributor);
         return $this;
@@ -558,7 +559,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function removeContributor(Person $contributor)
+    public function removeContributor(Person $contributor): self
     {
         $this->contributors->detach($contributor);
         return $this;
@@ -570,7 +571,7 @@ class Feed
      * @return Generator The agent used to generate a feed
      * @throws \RuntimeException 1425164401 if the feed has no generator set
      */
-    public function getGenerator()
+    public function getGenerator(): Generator
     {
         if (!$this->hasGenerator()) {
             throw new \RuntimeException('Feed has no generator', 1425164401);
@@ -585,7 +586,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setGenerator(Generator $generator)
+    public function setGenerator(Generator $generator): self
     {
         $this->generator = $generator;
         return $this;
@@ -596,7 +597,7 @@ class Feed
      *
      * @return boolean TRUE if this feed has a generator set, FALSE otherwise
      */
-    public function hasGenerator()
+    public function hasGenerator(): bool
     {
         return $this->generator instanceof Generator;
     }
@@ -607,7 +608,7 @@ class Feed
      * @return string IRI reference to a small image which provides iconic visual identification for the feed. Square.
      * @throws \RuntimeException 1425164402 if the feed has no icon set
      */
-    public function getIcon()
+    public function getIcon(): string
     {
         if (!$this->hasIcon()) {
             throw new \RuntimeException('Feed has no icon', 1425164402);
@@ -624,9 +625,9 @@ class Feed
      * @return Feed $this for fluent calls
      * @throws \InvalidArgumentException 1425164403 if $icon is not a valid icon
      */
-    public function setIcon($icon)
+    public function setIcon(string $icon): self
     {
-        if (!is_string($icon) || '' === $icon) {
+        if ('' === $icon) {
             throw new \InvalidArgumentException('Argument $icon is not a valid icon: ' . $icon, 1425164403);
         }
         $this->icon = $icon;
@@ -638,7 +639,7 @@ class Feed
      *
      * @return boolean TRUE if this feed has an icon set, FALSE otherwise
      */
-    public function hasIcon()
+    public function hasIcon(): bool
     {
         return is_string($this->icon) && '' !== $this->icon;
     }
@@ -649,7 +650,7 @@ class Feed
      * @return string IRI reference to an image that provides visual identification for the feed. Twice as wide as tall.
      * @throws \RuntimeException 1425164404 if the feed has no logo set
      */
-    public function getLogo()
+    public function getLogo(): string
     {
         if (!$this->hasLogo()) {
             throw new \RuntimeException('Feed has no logo', 1425164404);
@@ -666,9 +667,9 @@ class Feed
      * @return Feed $this for fluent calls
      * @throws \InvalidArgumentException 1425164405 if $logo is not a valid logo
      */
-    public function setLogo($logo)
+    public function setLogo(string $logo): self
     {
-        if (!is_string($logo) || '' === $logo) {
+        if ('' === $logo) {
             throw new \InvalidArgumentException('Argument $logo is not a valid logo: ' . $logo, 1425164405);
         }
         $this->logo = $logo;
@@ -680,7 +681,7 @@ class Feed
      *
      * @return boolean TRUE if this feed has a logo set, FALSE otherwise
      */
-    public function hasLogo()
+    public function hasLogo(): bool
     {
         return is_string($this->logo) && '' !== $this->logo;
     }
@@ -691,7 +692,7 @@ class Feed
      * @return Text Information about rights, e.g. copyrights, held in and over the feed
      * @throws \RuntimeException 1425164406 if the feed has no rights information set
      */
-    public function getRights()
+    public function getRights(): Text
     {
         if (!$this->hasRights()) {
             throw new \RuntimeException('Feed has no rights information set', 1425164406);
@@ -706,7 +707,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setRights(Text $rights)
+    public function setRights(Text $rights): self
     {
         $this->rights = $rights;
         return $this;
@@ -717,7 +718,7 @@ class Feed
      *
      * @return boolean TRUE if this feed has information about rights set, FALSE otherwise
      */
-    public function hasRights()
+    public function hasRights(): bool
     {
         return $this->rights instanceof Text;
     }
@@ -728,7 +729,7 @@ class Feed
      * @return Text Human readable description or subtitle for the feed.
      * @throws \RuntimeException 1425164407 if the feed has no subtitle set
      */
-    public function getSubtitle()
+    public function getSubtitle(): Text
     {
         if (!$this->hasSubtitle()) {
             throw new \RuntimeException('Feed has no subtitle set', 1425164407);
@@ -743,7 +744,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setSubtitle(Text $subtitle)
+    public function setSubtitle(Text $subtitle): self
     {
         $this->subtitle = $subtitle;
         return $this;
@@ -754,7 +755,7 @@ class Feed
      *
      * @return boolean TRUE if this feed has its subtitle set, FALSE otherwise
      */
-    public function hasSubtitle()
+    public function hasSubtitle(): bool
     {
         return $this->subtitle instanceof Text;
     }
@@ -764,7 +765,7 @@ class Feed
      *
      * @return \SplObjectStorage<Entry> Entries
      */
-    public function getEntries()
+    public function getEntries(): \SplObjectStorage
     {
         return $this->entries;
     }
@@ -776,7 +777,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function setEntries(\SplObjectStorage $entries)
+    public function setEntries(\SplObjectStorage $entries): self
     {
         $this->entries = $entries;
         return $this;
@@ -789,7 +790,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function addEntry(Entry $entry)
+    public function addEntry(Entry $entry): self
     {
         $this->entries->attach($entry);
         return $this;
@@ -802,7 +803,7 @@ class Feed
      *
      * @return Feed $this for fluent calls
      */
-    public function removeEntry(Entry $entry)
+    public function removeEntry(Entry $entry): self
     {
         $this->entries->detach($entry);
         return $this;

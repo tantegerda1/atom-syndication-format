@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat\Content;
 
 use Netztechniker\AtomSyndicationFormat;
@@ -18,13 +19,13 @@ abstract class Inline extends AtomSyndicationFormat\Content
 {
 
     /** Content contains plain text with no entity escaped html */
-    const TYPE_TEXT = 'text';
+    public const TYPE_TEXT = 'text';
 
     /** Content contains entity escaped html */
-    const TYPE_HTML = 'html';
+    public const TYPE_HTML = 'html';
 
     /** Content contains inline xhtml, wrapped in a div element */
-    const TYPE_XHTML = 'xhtml';
+    public const TYPE_XHTML = 'xhtml';
 
 
 
@@ -50,7 +51,7 @@ abstract class Inline extends AtomSyndicationFormat\Content
      * @return \DOMElement A XML node representing this content
      * @throws \InvalidArgumentException if the $content is not valid in the current context
      */
-    public function toXML(\DOMElement $de)
+    public function toXML(\DOMElement $de): \DOMElement
     {
         $de->nodeValue = $this->getContent();
         if ($this->hasType() && $this->getType() !== self::TYPE_TEXT) {
@@ -71,7 +72,7 @@ abstract class Inline extends AtomSyndicationFormat\Content
      *
      * @return string Content; encoded according to $this->type
      */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }
@@ -84,12 +85,12 @@ abstract class Inline extends AtomSyndicationFormat\Content
      * @return Inline $this for fluent calls
      * @throws \InvalidArgumentException if the $content is not valid in the current context
      */
-    abstract public function setContent($content);
+    abstract public function setContent(string $content);
 
     /**
      * Test whether this content has the type attribute set or not
      *
      * @return TRUE if this content has the type attribute set, FALSE otherwise
      */
-    abstract public function hasType();
+    abstract public function hasType(): bool;
 }

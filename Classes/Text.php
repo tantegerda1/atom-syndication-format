@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat;
 
 /**
@@ -16,13 +16,13 @@ class Text
 {
 
     /** This text contains plain text with no entity escaped html */
-    const TYPE_TEXT = 'text';
+    public const TYPE_TEXT = 'text';
 
     /** This text contains entity escaped html */
-    const TYPE_HTML = 'html';
+    public const TYPE_HTML = 'html';
 
     /** This element contains inline xhtml, wrapped in a div element */
-    const TYPE_XHTML = 'xhtml';
+    public const TYPE_XHTML = 'xhtml';
 
 
 
@@ -64,7 +64,7 @@ class Text
      * @throws \InvalidArgumentException 1425164439 if $text is not a valid text
      * @throws \InvalidArgumentException 1425164441 if $type is set but not a valid type
      */
-    public function __construct($text, $type = null)
+    public function __construct(string $text, ?string $type = null)
     {
         $this->setText($text);
         if (null !== $type) {
@@ -84,7 +84,7 @@ class Text
      *
      * @return \DOMElement A XML node representing this text
      */
-    public function toXML(\DOMElement $de)
+    public function toXML(\DOMElement $de): \DOMElement
     {
         $de->nodeValue = $this->getText();
         if ($this->hasType() && self::TYPE_TEXT !== $this->getType()) {
@@ -104,7 +104,7 @@ class Text
      *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
@@ -117,7 +117,7 @@ class Text
      * @return Text $this for fluent calls
      * @throws \InvalidArgumentException 1425164439 if $text is not a valid text
      */
-    public function setText($text)
+    public function setText(string $text): self
     {
         if (!is_string($text)) {
             throw new \InvalidArgumentException('Argument $text is not a valid text: ' . $text, 1425164439);
@@ -132,7 +132,7 @@ class Text
      * @return string Type of the text encoding; one of the TYPE_* constants
      * @throws \RuntimeException 1425164440 if the text has no type set
      */
-    public function getType()
+    public function getType(): string
     {
         if (!$this->hasType()) {
             throw new \RuntimeException('Generator has no type set', 1425164440);
@@ -148,9 +148,9 @@ class Text
      * @return Text $this for fluent calls
      * @throws \InvalidArgumentException 1425164441 if $type is not a valid type
      */
-    public function setType($type)
+    public function setType(string $type): self
     {
-        if (!is_string($type) || !in_array($type, [self::TYPE_TEXT, self::TYPE_HTML, self::TYPE_XHTML])) {
+        if (!in_array($type, [self::TYPE_TEXT, self::TYPE_HTML, self::TYPE_XHTML])) {
             throw new \InvalidArgumentException('Argument $type is not a valid encoding type: ' . $type, 1425164441);
         }
         $this->type = $type;
@@ -162,7 +162,7 @@ class Text
      *
      * @return boolean TRUE if this text has a type attribute set, FALSE otherwise
      */
-    public function hasType()
+    public function hasType(): bool
     {
         return is_string($this->type) && in_array($this->type, [self::TYPE_TEXT, self::TYPE_HTML, self::TYPE_XHTML]);
     }

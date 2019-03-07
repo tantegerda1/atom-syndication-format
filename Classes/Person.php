@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat;
 
 /**
@@ -65,7 +65,7 @@ class Person
      * @throws \InvalidArgumentException 1425164436 if $uri is set but not a valid IRI
      * @throws \InvalidArgumentException 1425164438 if $email is set but not a valid email address
      */
-    public function __construct($name, $uri = null, $email = null)
+    public function __construct(string $name, ?string $uri = null, ?string $email = null)
     {
         $this->setName($name);
         if (null !== $uri) {
@@ -89,7 +89,7 @@ class Person
      *
      * @return \DOMElement A XML node representing this person
      */
-    public function toXML(\DOMElement $de)
+    public function toXML(\DOMElement $de): \DOMElement
     {
         $de->appendChild(new \DOMElement('name', $this->getName()));
         if ($this->hasUri()) {
@@ -111,7 +111,7 @@ class Person
      *
      * @return string Human readable name for the person
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -125,9 +125,9 @@ class Person
      *
      * @throws \InvalidArgumentException 1425164434 if $name is not a valid name
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
-        if (!is_string($name) || '' === $name) {
+        if ('' === $name) {
             throw new \InvalidArgumentException('Argument $name is not a valid name: ' . $name, 1425164434);
         }
         $this->name = $name;
@@ -140,7 +140,7 @@ class Person
      * @return string An IRI associated with the person (e.g. their website)
      * @throws \RuntimeException 1425164435 if the person has no URI set
      */
-    public function getUri()
+    public function getUri(): string
     {
         if (!$this->hasUri()) {
             throw new \RuntimeException('Person has no URI set', 1425164435);
@@ -156,9 +156,9 @@ class Person
      * @return Person $this for fluent calls
      * @throws \InvalidArgumentException 1425164436 if $uri is not a valid IRI
      */
-    public function setUri($uri)
+    public function setUri(string $uri): self
     {
-        if (!is_string($uri) || '' === $uri) {
+        if ('' === $uri) {
             throw new \InvalidArgumentException('Argument $uri is not a valid IRI: ' . $uri, 1425164436);
         }
         $this->uri = $uri;
@@ -170,7 +170,7 @@ class Person
      *
      * @return TRUE if this person has a uri attribute set, FALSE otherwise
      */
-    public function hasUri()
+    public function hasUri(): bool
     {
         return is_string($this->uri) && '' !== $this->uri;
     }
@@ -181,7 +181,7 @@ class Person
      * @return string Email address
      * @throws \RuntimeException 1425164437 if the person has no valid email address set
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         if (!$this->hasEmail()) {
             throw new \RuntimeException('Person has no valid email address set', 1425164437);
@@ -198,7 +198,7 @@ class Person
      *
      * @throws \InvalidArgumentException 1425164438 if $email is not a valid email address
      */
-    public function setEmail($email)
+    public function setEmail(string $email): self
     {
         if ($email !== filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new \InvalidArgumentException('Argument $email is not a valid email address: ' . $email, 1425164438);
@@ -212,7 +212,7 @@ class Person
      *
      * @return TRUE if this person has a valid email address set, FALSE otherwise
      */
-    public function hasEmail()
+    public function hasEmail(): bool
     {
         return $this->email === filter_var($this->email, FILTER_VALIDATE_EMAIL);
     }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat\Content\Inline;
 
 use Netztechniker\AtomSyndicationFormat;
@@ -45,7 +46,7 @@ class Text extends AtomSyndicationFormat\Content\Inline
      * @throws \InvalidArgumentException 1425164447 if $content is not a valid content
      * @throws \InvalidArgumentException 1425164449 if $type is set but not a valid type
      */
-    public function __construct($content, $type = null)
+    public function __construct(string $content, ?string $type = null)
     {
         $this->setContent($content);
         if (null !== $type) {
@@ -65,13 +66,9 @@ class Text extends AtomSyndicationFormat\Content\Inline
      * @param string $content Content; encoded according to $this->type
      *
      * @return Text $this for fluent calls
-     * @throws \InvalidArgumentException 1425164447 if $content is not a valid content
      */
-    public function setContent($content)
+    public function setContent(string $content): self
     {
-        if (!is_string($content)) {
-            throw new \InvalidArgumentException('Argument $content is not a valid content: ' . $content, 1425164447);
-        }
         $this->content = $content;
 
         return $this;
@@ -83,7 +80,7 @@ class Text extends AtomSyndicationFormat\Content\Inline
      * @return string Type of the text encoding; one of the TYPE_TEXT or TYPE_HTML constants
      * @throws \RuntimeException 1425164448 if the content has no type set
      */
-    public function getType()
+    public function getType(): string
     {
         if (!$this->hasType()) {
             throw new \RuntimeException('Inline text content has no type set', 1425164448);
@@ -101,9 +98,9 @@ class Text extends AtomSyndicationFormat\Content\Inline
      *
      * @throws \InvalidArgumentException 1425164449 if $type is not a valid type
      */
-    public function setType($type)
+    public function setType(string $type): self
     {
-        if (!is_string($type) || !in_array($type, [self::TYPE_TEXT, self::TYPE_HTML])) {
+        if (!in_array($type, [self::TYPE_TEXT, self::TYPE_HTML])) {
             throw new \InvalidArgumentException('Argument $type is not a valid encoding type: ' . $type, 1425164449);
         }
         $this->type = $type;
@@ -116,7 +113,7 @@ class Text extends AtomSyndicationFormat\Content\Inline
      *
      * @return TRUE if this content has the type attribute set, FALSE otherwise
      */
-    public function hasType()
+    public function hasType(): bool
     {
         return is_string($this->type) && in_array($this->type, [self::TYPE_TEXT, self::TYPE_HTML]);
     }

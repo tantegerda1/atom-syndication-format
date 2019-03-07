@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat\Content;
 
 use Netztechniker\AtomSyndicationFormat;
@@ -52,7 +53,7 @@ class OutOfLine extends AtomSyndicationFormat\Content
      * @throws \InvalidArgumentException 1425164442 if $src is not a valid IRI
      * @throws \InvalidArgumentException 1425164444 if $type is set but no valid MIME type
      */
-    public function __construct($src, $type = null)
+    public function __construct(string $src, ?string $type = null)
     {
         $this->setSrc($src);
         if (null !== $type) {
@@ -73,7 +74,7 @@ class OutOfLine extends AtomSyndicationFormat\Content
      *
      * @return \DOMElement A XML node representing this content
      */
-    public function toXML(\DOMElement $de)
+    public function toXML(\DOMElement $de): \DOMElement
     {
         $de->setAttribute('src', $this->getSrc());
         if ($this->hasType()) {
@@ -93,7 +94,7 @@ class OutOfLine extends AtomSyndicationFormat\Content
      *
      * @return string IRI of the referenced resource
      */
-    public function getSrc()
+    public function getSrc(): string
     {
         return $this->src;
     }
@@ -106,9 +107,9 @@ class OutOfLine extends AtomSyndicationFormat\Content
      * @return OutOfLine $this for fluent calls
      * @throws \InvalidArgumentException 1425164442 if $src is not a valid IRI
      */
-    public function setSrc($src)
+    public function setSrc(string $src): self
     {
-        if (!is_string($src) || '' === $src) {
+        if ('' === $src) {
             throw new \InvalidArgumentException('Argument $src is not a valid IRI: ' . $src, 1425164442);
         }
         $this->src = $src;
@@ -122,7 +123,7 @@ class OutOfLine extends AtomSyndicationFormat\Content
      * @return string MIME Media type of the resource
      * @throws \RuntimeException 1425164443 if the content defines no MIME Media type for the resource
      */
-    public function getType()
+    public function getType(): string
     {
         if (!$this->hasType()) {
             throw new \RuntimeException('OutOfLine content has no MIME Media Type set', 1425164443);
@@ -139,9 +140,9 @@ class OutOfLine extends AtomSyndicationFormat\Content
      * @return OutOfLine $this for fluent calls
      * @throws \InvalidArgumentException 1425164444 if $type is no valid MIME type
      */
-    public function setType($type)
+    public function setType(string $type): self
     {
-        if (!is_string($type) || '' === $type || 1 !== preg_match(AtomSyndicationFormat\Link::MIME_PATTERN, $type)) {
+        if ('' === $type || 1 !== preg_match(AtomSyndicationFormat\Link::MIME_PATTERN, $type)) {
             throw new \InvalidArgumentException('Argument $type is not a valid MIME type: ' . $type, 1425164444);
         }
         $this->type = $type;
@@ -154,7 +155,7 @@ class OutOfLine extends AtomSyndicationFormat\Content
      *
      * @return TRUE if this content has a MIME Media Type set, FALSE otherwise
      */
-    public function hasType()
+    public function hasType(): bool
     {
         return is_string($this->type) && 1 === preg_match(AtomSyndicationFormat\Link::MIME_PATTERN, $this->type);
     }

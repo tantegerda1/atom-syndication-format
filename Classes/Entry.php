@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat;
 
 
@@ -15,7 +16,7 @@ class Entry
 {
 
     /** Name of XML tag */
-    const TAG_NAME = 'entry';
+    public const TAG_NAME = 'entry';
 
 
 
@@ -173,7 +174,7 @@ class Entry
      * @throws \InvalidArgumentException 1425164408 if $id is not a valid Entry ID
      */
     public function __construct(
-        $id, Text $title, \DateTime $updated,
+        string $id, Text $title, \DateTime $updated,
         \SplObjectStorage $authors = null, Content $content = null, \SplObjectStorage $links = null,
         Text $summary = null,
         \SplObjectStorage $categories = null, \SplObjectStorage $contributors = null, \DateTime $published = null,
@@ -184,16 +185,16 @@ class Entry
             ->setId($id)
             ->setTitle($title)
             ->setUpdated($updated);
-        $this->setAuthors(null !== $authors ? $authors : new \SplObjectStorage());
+        $this->setAuthors($authors ?? new \SplObjectStorage());
         if (null !== $content) {
             $this->setContent($content);
         }
-        $this->setLinks(null !== $links ? $links : new \SplObjectStorage());
+        $this->setLinks($links ?? new \SplObjectStorage());
         if (null !== $summary) {
             $this->setSummary($summary);
         }
-        $this->setCategories(null !== $categories ? $categories : new \SplObjectStorage());
-        $this->setContributors(null !== $contributors ? $contributors : new \SplObjectStorage());
+        $this->setCategories($categories ?? new \SplObjectStorage());
+        $this->setContributors($contributors ?? new \SplObjectStorage());
         if (null !== $published) {
             $this->setPublished($published);
         }
@@ -221,7 +222,7 @@ class Entry
      *
      * @return \DOMElement A XML node representing this entry
      */
-    public function toXML(\DOMElement $entry, \DOMDocument $xml)
+    public function toXML(\DOMElement $entry, \DOMDocument $xml): \DOMElement
     {
 
         // required
@@ -278,7 +279,7 @@ class Entry
      *
      * @return string Entry ID. Identifies the entry using a universally unique and permanent URI.
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -292,9 +293,9 @@ class Entry
      *
      * @throws \InvalidArgumentException 1425164408 if $id is not a valid Entry ID
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
-        if (!is_string($id) || '' === $id) {
+        if ('' === $id) {
             throw new \InvalidArgumentException('Argument $id is not a valid ID: ' . $id, 1425164408);
         }
         $this->id = $id;
@@ -307,7 +308,7 @@ class Entry
      *
      * @return Text A human readable title for the entry. Often the same as the title of the associated website.
      */
-    public function getTitle()
+    public function getTitle(): Text
     {
         return $this->title;
     }
@@ -319,7 +320,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setTitle(Text $title)
+    public function setTitle(Text $title): self
     {
         $this->title = $title;
 
@@ -331,7 +332,7 @@ class Entry
      *
      * @return \DateTime Last modification time (only significant modifications!).
      */
-    public function getUpdated()
+    public function getUpdated(): \DateTime
     {
         return $this->updated;
     }
@@ -343,7 +344,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setUpdated(\DateTime $updated)
+    public function setUpdated(\DateTime $updated): self
     {
         $this->updated = $updated;
 
@@ -355,7 +356,7 @@ class Entry
      *
      * @return \SplObjectStorage<Person> Authors of the entry.
      */
-    public function getAuthors()
+    public function getAuthors(): \SplObjectStorage
     {
         return $this->authors;
     }
@@ -367,7 +368,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setAuthors(\SplObjectStorage $authors)
+    public function setAuthors(\SplObjectStorage $authors): self
     {
         $this->authors = $authors;
 
@@ -381,7 +382,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function addAuthor(Person $author)
+    public function addAuthor(Person $author): self
     {
         $this->authors->attach($author);
 
@@ -395,7 +396,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function removeAuthor(Person $author)
+    public function removeAuthor(Person $author): self
     {
         $this->authors->detach($author);
 
@@ -408,7 +409,7 @@ class Entry
      * @return Content Contains or links to the complete content of the entry.
      * @throws \RuntimeException 1425164409 if the entry has no content set
      */
-    public function getContent()
+    public function getContent(): Content
     {
         if (!$this->hasContent()) {
             throw new \RuntimeException('Entry has no content', 1425164409);
@@ -424,7 +425,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setContent(Content $content)
+    public function setContent(Content $content): self
     {
         $this->content = $content;
 
@@ -436,7 +437,7 @@ class Entry
      *
      * @return boolean TRUE if this entry has content set, FALSE otherwise
      */
-    public function hasContent()
+    public function hasContent(): bool
     {
         return $this->content instanceof Content;
     }
@@ -446,7 +447,7 @@ class Entry
      *
      * @return \SplObjectStorage<Link> Related web pages and other resources
      */
-    public function getLinks()
+    public function getLinks(): \SplObjectStorage
     {
         return $this->links;
     }
@@ -458,7 +459,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setLinks(\SplObjectStorage $links)
+    public function setLinks(\SplObjectStorage $links): self
     {
         $this->links = $links;
 
@@ -472,7 +473,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function addLink(Link $link)
+    public function addLink(Link $link): self
     {
         $this->links->attach($link);
 
@@ -486,7 +487,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function removeLink(Link $link)
+    public function removeLink(Link $link): self
     {
         $this->links->detach($link);
 
@@ -499,7 +500,7 @@ class Entry
      * @return Text A short summary, abstract, or excerpt of the entry.
      * @throws \RuntimeException 1425164410 if the entry has no summary set
      */
-    public function getSummary()
+    public function getSummary(): Text
     {
         if (!$this->hasSummary()) {
             throw new \RuntimeException('Entry has no summary set', 1425164410);
@@ -515,7 +516,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setSummary(Text $summary)
+    public function setSummary(Text $summary): self
     {
         $this->summary = $summary;
 
@@ -527,7 +528,7 @@ class Entry
      *
      * @return boolean TRUE if this entry has a summary set, FALSE otherwise
      */
-    public function hasSummary()
+    public function hasSummary(): bool
     {
         return $this->summary instanceof Text;
     }
@@ -537,7 +538,7 @@ class Entry
      *
      * @return \SplObjectStorage<Category> Categories that the entry belongs to
      */
-    public function getCategories()
+    public function getCategories(): \SplObjectStorage
     {
         return $this->categories;
     }
@@ -549,7 +550,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setCategories(\SplObjectStorage $categories)
+    public function setCategories(\SplObjectStorage $categories): self
     {
         $this->categories = $categories;
 
@@ -563,7 +564,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function addCategory(Category $category)
+    public function addCategory(Category $category): self
     {
         $this->categories->attach($category);
 
@@ -577,7 +578,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function removeCategory(Category $category)
+    public function removeCategory(Category $category): self
     {
         $this->categories->detach($category);
 
@@ -589,7 +590,7 @@ class Entry
      *
      * @return \SplObjectStorage<Person> Contributors to the entry
      */
-    public function getContributors()
+    public function getContributors(): \SplObjectStorage
     {
         return $this->contributors;
     }
@@ -601,7 +602,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setContributors(\SplObjectStorage $contributors)
+    public function setContributors(\SplObjectStorage $contributors): self
     {
         $this->contributors = $contributors;
 
@@ -615,7 +616,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function addContributor(Person $contributor)
+    public function addContributor(Person $contributor): self
     {
         $this->contributors->attach($contributor);
 
@@ -629,7 +630,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function removeContributor(Person $contributor)
+    public function removeContributor(Person $contributor): self
     {
         $this->contributors->detach($contributor);
 
@@ -642,7 +643,7 @@ class Entry
      * @return \DateTime Time of the initial creation or first availability of the entry
      * @throws \RuntimeException 1425164411 if this entry has no time of initial creation or first availability set
      */
-    public function getPublished()
+    public function getPublished(): \DateTime
     {
         if (!$this->hasPublished()) {
             throw new \RuntimeException('Entry has no time of initial creation set', 1425164411);
@@ -658,7 +659,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setPublished(\DateTime $published)
+    public function setPublished(\DateTime $published): self
     {
         $this->published = $published;
 
@@ -670,7 +671,7 @@ class Entry
      *
      * @return boolean TRUE if the entry has time of the initial creation or first availability set, FALSE otherwise
      */
-    public function hasPublished()
+    public function hasPublished(): bool
     {
         return $this->published instanceof \DateTime;
     }
@@ -681,7 +682,7 @@ class Entry
      * @return Feed Source feed this entry is copied from
      * @throws \RuntimeException 1425164412 if this entry has no source feed set
      */
-    public function getSource()
+    public function getSource(): Feed
     {
         if (!$this->hasSource()) {
             throw new \RuntimeException('Entry has no source feed set', 1425164412);
@@ -697,7 +698,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setSource(Feed $source)
+    public function setSource(Feed $source): self
     {
         $this->source = $source;
 
@@ -709,7 +710,7 @@ class Entry
      *
      * @return boolean TRUE if the entry has a source feed set, FALSE otherwise
      */
-    public function hasSource()
+    public function hasSource(): bool
     {
         return $this->source instanceof Feed;
     }
@@ -720,7 +721,7 @@ class Entry
      * @return Text Information about rights, e.g. copyrights, held in and over the entry
      * @throws \RuntimeException 1425164413 if the entry has no rights information set
      */
-    public function getRights()
+    public function getRights(): Text
     {
         if (!$this->hasRights()) {
             throw new \RuntimeException('Feed has no rights information set', 1425164413);
@@ -736,7 +737,7 @@ class Entry
      *
      * @return Entry $this for fluent calls
      */
-    public function setRights(Text $rights)
+    public function setRights(Text $rights): self
     {
         $this->rights = $rights;
 
@@ -748,7 +749,7 @@ class Entry
      *
      * @return boolean TRUE if this feed has information about rights set, FALSE otherwise
      */
-    public function hasRights()
+    public function hasRights(): bool
     {
         return $this->rights instanceof Text;
     }

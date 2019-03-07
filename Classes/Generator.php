@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Netztechniker\AtomSyndicationFormat;
 
 /**
@@ -15,7 +16,7 @@ class Generator
 {
 
     /** Name of XML tag */
-    const TAG_NAME = 'generator';
+    public const TAG_NAME = 'generator';
 
 
 
@@ -62,7 +63,7 @@ class Generator
      * @throws \InvalidArgumentException 1425164420 if $uri is set but not a valid IRI
      * @throws \InvalidArgumentException 1425164422 if $version is set but not a valid version
      */
-    public function __construct($name, $uri = null, $version = null)
+    public function __construct(string $name, ?string $uri = null, ?string $version = null)
     {
         $this->setName($name);
         if (null !== $uri) {
@@ -85,7 +86,7 @@ class Generator
      *
      * @return \DOMElement A XML node representing this generator
      */
-    public function toXML(\DOMElement $de)
+    public function toXML(\DOMElement $de): \DOMElement
     {
         $de->nodeValue = $this->getName();
         if ($this->hasUri()) {
@@ -108,7 +109,7 @@ class Generator
      *
      * @return string Software used to generate the feed
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -121,9 +122,9 @@ class Generator
      * @return Generator $this for fluent calls
      * @throws \InvalidArgumentException 1425164418 if $name is not a valid name
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
-        if (!is_string($name) || '' === $name) {
+        if ('' === $name) {
             throw new \InvalidArgumentException('Argument $name is not a valid name: ' . $name, 1425164418);
         }
         $this->name = $name;
@@ -136,7 +137,7 @@ class Generator
      * @return string An IRI that is relevant to the agent.
      * @throws \RuntimeException 1425164419 if the generator has no uri set
      */
-    public function getUri()
+    public function getUri(): string
     {
         if (!$this->hasUri()) {
             throw new \RuntimeException('Generator has no uri set', 1425164419);
@@ -152,7 +153,7 @@ class Generator
      * @return Generator $this for fluent calls
      * @throws \InvalidArgumentException 1425164420 if $uri is not a valid IRI
      */
-    public function setUri($uri)
+    public function setUri(string $uri)
     {
         if (!is_string($uri) || '' === $uri) {
             throw new \InvalidArgumentException('Argument $uri is not a valid IRI: ' . $uri, 1425164420);
@@ -166,7 +167,7 @@ class Generator
      *
      * @return boolean TRUE if this generator has a uri attribute set, FALSE otherwise
      */
-    public function hasUri()
+    public function hasUri(): bool
     {
         return is_string($this->uri) && '' !== $this->uri;
     }
