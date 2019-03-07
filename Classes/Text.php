@@ -150,7 +150,7 @@ class Text
      */
     public function setType(string $type): self
     {
-        if (!in_array($type, [self::TYPE_TEXT, self::TYPE_HTML, self::TYPE_XHTML])) {
+        if (!in_array($type, [self::TYPE_TEXT, self::TYPE_HTML, self::TYPE_XHTML], true)) {
             throw new \InvalidArgumentException('Argument $type is not a valid encoding type: ' . $type, 1425164441);
         }
         $this->type = $type;
@@ -164,6 +164,6 @@ class Text
      */
     public function hasType(): bool
     {
-        return is_string($this->type) && in_array($this->type, [self::TYPE_TEXT, self::TYPE_HTML, self::TYPE_XHTML]);
+        return is_string($this->type) && in_array($this->type, [self::TYPE_TEXT, self::TYPE_HTML, self::TYPE_XHTML], true);
     }
 }

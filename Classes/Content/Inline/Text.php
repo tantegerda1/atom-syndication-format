@@ -100,7 +100,7 @@ class Text extends AtomSyndicationFormat\Content\Inline
      */
     public function setType(string $type): self
     {
-        if (!in_array($type, [self::TYPE_TEXT, self::TYPE_HTML])) {
+        if (!in_array($type, [self::TYPE_TEXT, self::TYPE_HTML], true)) {
             throw new \InvalidArgumentException('Argument $type is not a valid encoding type: ' . $type, 1425164449);
         }
         $this->type = $type;
@@ -115,6 +115,6 @@ class Text extends AtomSyndicationFormat\Content\Inline
      */
     public function hasType(): bool
     {
-        return is_string($this->type) && in_array($this->type, [self::TYPE_TEXT, self::TYPE_HTML]);
+        return is_string($this->type) && in_array($this->type, [self::TYPE_TEXT, self::TYPE_HTML], true);
     }
 }
