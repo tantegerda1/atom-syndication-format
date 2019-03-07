@@ -55,7 +55,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
     /**
      * Get Content
      *
-     * Not that the content is always stored in base64 encoding.
+     * Note that the content is always stored in base64 encoding.
      *
      * @param boolean $base64Decode Whether to decode the base64-encoding of the Content (TRUE) or not (FALSE)
      *
