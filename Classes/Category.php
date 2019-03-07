@@ -177,7 +177,7 @@ class Category
     /**
      * Test whether this category has a scheme attribute set
      *
-     * @return TRUE if this category has a scheme attribute set, FALSE otherwise
+     * @return true if this category has a scheme attribute set, false otherwise
      */
     public function hasScheme(): bool
     {
@@ -220,7 +220,7 @@ class Category
     /**
      * Test whether this category has a human-readable label set
      *
-     * @return TRUE if this category has a human-readable label set, FALSE otherwise
+     * @return true if this category has a human-readable label set, false otherwise
      */
     public function hasLabel(): bool
     {

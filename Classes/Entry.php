@@ -435,7 +435,7 @@ class Entry
     /**
      * Test whether this entry has content
      *
-     * @return boolean TRUE if this entry has content set, FALSE otherwise
+     * @return bool true if this entry has content set, false otherwise
      */
     public function hasContent(): bool
     {
@@ -526,7 +526,7 @@ class Entry
     /**
      * Test whether this entry has a summary set
      *
-     * @return boolean TRUE if this entry has a summary set, FALSE otherwise
+     * @return bool true if this entry has a summary set, false otherwise
      */
     public function hasSummary(): bool
     {
@@ -669,7 +669,7 @@ class Entry
     /**
      * Test whether this entry has a time of the initial creation or first availability of the entry set
      *
-     * @return boolean TRUE if the entry has time of the initial creation or first availability set, FALSE otherwise
+     * @return bool true if the entry has time of the initial creation or first availability set, false otherwise
      */
     public function hasPublished(): bool
     {
@@ -708,7 +708,7 @@ class Entry
     /**
      * Test whether this entry has a source feed set
      *
-     * @return boolean TRUE if the entry has a source feed set, FALSE otherwise
+     * @return bool true if the entry has a source feed set, false otherwise
      */
     public function hasSource(): bool
     {
@@ -747,7 +747,7 @@ class Entry
     /**
      * Test whether this feed has information about rights set
      *
-     * @return boolean TRUE if this feed has information about rights set, FALSE otherwise
+     * @return bool true if this feed has information about rights set, false otherwise
      */
     public function hasRights(): bool
     {

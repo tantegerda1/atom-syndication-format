@@ -101,7 +101,7 @@ class Link
      * Note that the length attribute does not override the actual content length of the representation as reported
      * by the underlying protocol
      *
-     * @var integer
+     * @var int
      * @link https://tools.ietf.org/html/rfc4287#section-4.2.7.6
      */
     protected $length;
@@ -121,7 +121,7 @@ class Link
      * @param string $type MIME Media type of the resource
      * @param string $hreflang Language of the referenced resource
      * @param string $title Human readable information about the link, typically for display purposes.
-     * @param integer $length Length of the resource (bytes)
+     * @param int $length Length of the resource (bytes)
      *
      * @throws \InvalidArgumentException 1425164423 if $href is not a valid IRI
      * @throws \InvalidArgumentException 1425164425 if $rel is set but no valid link relationship type
@@ -264,7 +264,7 @@ class Link
     /**
      * Test whether this link has a rel attribute or not
      *
-     * @return TRUE if this link has a rel attribute, FALSE otherwise
+     * @return true if this link has a rel attribute, false otherwise
      */
     public function hasRel(): bool
     {
@@ -305,7 +305,7 @@ class Link
     /**
      * Test whether this link has a MIME Media Type set or not
      *
-     * @return TRUE if this link has a MIME Media Type set, FALSE otherwise
+     * @return true if this link has a MIME Media Type set, false otherwise
      */
     public function hasType(): bool
     {
@@ -347,7 +347,7 @@ class Link
     /**
      * Test whether this link defines the language of the reference or not
      *
-     * @return TRUE if this link defines the language of the reference, FALSE otherwise
+     * @return true if this link defines the language of the reference, false otherwise
      */
     public function hasHreflang(): bool
     {
@@ -388,7 +388,7 @@ class Link
     /**
      * Test whether this link has a title attribute set or not
      *
-     * @return TRUE if this link has a title attribute set, FALSE otherwise
+     * @return true if this link has a title attribute set, false otherwise
      */
     public function hasTitle(): bool
     {
@@ -398,7 +398,7 @@ class Link
     /**
      * Get Length
      *
-     * @return integer Length of the resource (bytes)
+     * @return int Length of the resource (bytes)
      * @throws \RuntimeException 1425164432 if the link does not specify a length
      */
     public function getLength(): int
@@ -412,7 +412,7 @@ class Link
     /**
      * Set Length
      *
-     * @param integer $length Length of the resource (bytes)
+     * @param int $length Length of the resource (bytes)
      *
      * @return Link $this for fluent calls
      * @throws \InvalidArgumentException 1425164433 if $length is not a valid length
@@ -429,7 +429,7 @@ class Link
     /**
      * Test whether this link has a length specified or not
      *
-     * @return TRUE if this link has a length specified, FALSE otherwise
+     * @return true if this link has a length specified, false otherwise
      */
     public function hasLength(): bool
     {

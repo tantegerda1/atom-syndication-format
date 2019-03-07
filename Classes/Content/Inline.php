@@ -90,7 +90,7 @@ abstract class Inline extends AtomSyndicationFormat\Content
     /**
      * Test whether this content has the type attribute set or not
      *
-     * @return TRUE if this content has the type attribute set, FALSE otherwise
+     * @return true if this content has the type attribute set, false otherwise
      */
     abstract public function hasType(): bool;
 }

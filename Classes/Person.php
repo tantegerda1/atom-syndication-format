@@ -168,7 +168,7 @@ class Person
     /**
      * Test whether this person has a uri attribute set
      *
-     * @return TRUE if this person has a uri attribute set, FALSE otherwise
+     * @return true if this person has a uri attribute set, false otherwise
      */
     public function hasUri(): bool
     {
@@ -210,7 +210,7 @@ class Person
     /**
      * Test whether this person has a valid email address set
      *
-     * @return TRUE if this person has a valid email address set, FALSE otherwise
+     * @return true if this person has a valid email address set, false otherwise
      */
     public function hasEmail(): bool
     {

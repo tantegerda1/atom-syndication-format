@@ -111,7 +111,7 @@ class Text extends AtomSyndicationFormat\Content\Inline
     /**
      * Test whether this content has the type attribute set or not
      *
-     * @return TRUE if this content has the type attribute set, FALSE otherwise
+     * @return true if this content has the type attribute set, false otherwise
      */
     public function hasType(): bool
     {

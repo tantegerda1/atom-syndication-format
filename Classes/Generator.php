@@ -165,7 +165,7 @@ class Generator
     /**
      * Test whether this generator has a uri attribute set
      *
-     * @return boolean TRUE if this generator has a uri attribute set, FALSE otherwise
+     * @return bool true if this generator has a uri attribute set, false otherwise
      */
     public function hasUri(): bool
     {
@@ -206,7 +206,7 @@ class Generator
     /**
      * Test whether this generator has a version attribute set
      *
-     * @return boolean TRUE if this generator has a version attribute set, FALSE otherwise
+     * @return bool true if this generator has a version attribute set, false otherwise
      */
     public function hasVersion()
     {

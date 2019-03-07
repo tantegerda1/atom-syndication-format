@@ -160,7 +160,7 @@ class Text
     /**
      * Test whether this text has a type attribute set
      *
-     * @return boolean TRUE if this text has a type attribute set, FALSE otherwise
+     * @return bool true if this text has a type attribute set, false otherwise
      */
     public function hasType(): bool
     {

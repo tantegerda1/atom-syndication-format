@@ -595,7 +595,7 @@ class Feed
     /**
      * Test whether this feed has a generator set
      *
-     * @return boolean TRUE if this feed has a generator set, FALSE otherwise
+     * @return bool true if this feed has a generator set, false otherwise
      */
     public function hasGenerator(): bool
     {
@@ -637,7 +637,7 @@ class Feed
     /**
      * Test whether this feed has an icon set
      *
-     * @return boolean TRUE if this feed has an icon set, FALSE otherwise
+     * @return bool true if this feed has an icon set, false otherwise
      */
     public function hasIcon(): bool
     {
@@ -679,7 +679,7 @@ class Feed
     /**
      * Test whether this feed has a logo set
      *
-     * @return boolean TRUE if this feed has a logo set, FALSE otherwise
+     * @return bool true if this feed has a logo set, false otherwise
      */
     public function hasLogo(): bool
     {
@@ -716,7 +716,7 @@ class Feed
     /**
      * Test whether this feed has information about rights set
      *
-     * @return boolean TRUE if this feed has information about rights set, FALSE otherwise
+     * @return bool true if this feed has information about rights set, false otherwise
      */
     public function hasRights(): bool
     {
@@ -753,7 +753,7 @@ class Feed
     /**
      * Test whether this feed has its subtitle set
      *
-     * @return boolean TRUE if this feed has its subtitle set, FALSE otherwise
+     * @return bool true if this feed has its subtitle set, false otherwise
      */
     public function hasSubtitle(): bool
     {

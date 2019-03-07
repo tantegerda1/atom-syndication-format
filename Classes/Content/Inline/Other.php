@@ -34,7 +34,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
      *
      * @param string $content Content
      * @param string $type MIME Media type of the content
-     * @param boolean $isBase64Encoded TRUE if $content is already base64 encoded, FALSE otherwise
+     * @param bool $isBase64Encoded true if $content is already base64 encoded, false otherwise
      *
      * @throws \InvalidArgumentException 1425164444 if $content is not a valid content
      * @throws \InvalidArgumentException 1425164446 if $type is set but no valid MIME type
@@ -57,7 +57,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
      *
      * Note that the content is always stored in base64 encoding.
      *
-     * @param boolean $base64Decode Whether to decode the base64-encoding of the Content (TRUE) or not (FALSE)
+     * @param bool $base64Decode Whether to decode the base64-encoding of the Content (true) or not (false)
      *
      * @return string Content
      */
@@ -74,7 +74,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
      * Stores the content in base64 encoding.
      *
      * @param string $content Content
-     * @param boolean $isBase64Encoded TRUE if $content is already base64 encoded, FALSE otherwise
+     * @param bool $isBase64Encoded true if $content is already base64 encoded, false otherwise
      *
      * @return Other $this for fluent calls
      */
@@ -123,7 +123,7 @@ class Other extends AtomSyndicationFormat\Content\Inline
     /**
      * Test whether this content has a MIME Media Type set or not
      *
-     * @return TRUE if this content has a MIME Media Type set, FALSE otherwise
+     * @return true if this content has a MIME Media Type set, false otherwise
      */
     public function hasType(): bool
     {

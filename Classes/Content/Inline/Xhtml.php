@@ -108,7 +108,7 @@ class Xhtml extends AtomSyndicationFormat\Content\Inline
     /**
      * Test whether this content has the type attribute set
      *
-     * @return boolean Always TRUE for this object type
+     * @return bool Always true for this object type
      */
     public function hasType(): bool
     {

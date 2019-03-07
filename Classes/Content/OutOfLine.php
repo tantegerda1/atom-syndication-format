@@ -153,7 +153,7 @@ class OutOfLine extends AtomSyndicationFormat\Content
     /**
      * Test whether this content has a MIME Media Type set or not
      *
-     * @return TRUE if this content has a MIME Media Type set, FALSE otherwise
+     * @return true if this content has a MIME Media Type set, false otherwise
      */
     public function hasType(): bool
     {
